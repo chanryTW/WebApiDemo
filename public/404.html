@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Web API Demo</title>
+  <script>
+    // 單頁應用程式的 GitHub Pages 重新導向
+    (function() {
+      var segmentCount = 1; // 根據您的 repository 名稱調整
+      var location = window.location;
+      var l = location.pathname.split('/').slice(0, segmentCount + 1).join('/') + '/?p=/';
+      l += location.pathname.slice(1).split('/').slice(segmentCount).join('/');
+      if (location.search) {
+        l += '&' + location.search.slice(1);
+      }
+      if (location.hash) {
+        l += location.hash;
+      }
+      location.replace(l);
+    }());
+  </script>
+</head>
+<body>
+</body>
+</html> 

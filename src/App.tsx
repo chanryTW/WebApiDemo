@@ -5,6 +5,9 @@ import Navigation from './components/Navigation';
 import CategoryPage from './pages/CategoryPage';
 import { setOpenDemoModal, categories } from './data/apiCategories';
 
+// 獲取 base URL
+const baseUrl = import.meta.env.BASE_URL;
+
 function App() {
   const [demoComponent, setDemoComponent] = useState<React.ReactNode | null>(null);
 
@@ -118,7 +121,7 @@ function App() {
   );
 
   return (
-    <Router>
+    <Router basename={baseUrl}>
       <div className="w-screen min-h-screen bg-gray-100 p-8">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-3xl font-bold mb-8 text-gray-800">
