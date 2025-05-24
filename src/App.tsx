@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import CategoryPage from './pages/CategoryPage';
+import { setOpenDemoModal } from './data/apiCategories';
 
 function App() {
+  const [demoComponent, setDemoComponent] = useState<React.ReactNode | null>(null);
+
+  useEffect(() => {
+    setOpenDemoModal((component: React.ReactNode) => {
+      setDemoComponent(component);
+    });
+  }, []);
+
+  const handleCloseDemoModal = () => {
+    setDemoComponent(null);
+  };
+
   return (
     <Router>
       <div className="w-screen min-h-screen bg-gray-100 p-8">
@@ -29,6 +42,13 @@ function App() {
           </div>
         </div>
       </div>
+
+      {React.isValidElement(demoComponent) &&
+        React.cloneElement(demoComponent, {
+          isOpen: true,
+          onClose: handleCloseDemoModal
+        })
+      }
     </Router>
   );
 }
