@@ -4,6 +4,7 @@ interface DemoModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
+  description: string;
   children: React.ReactNode;
   codeExample?: string;
 }
@@ -12,6 +13,7 @@ const DemoModal: React.FC<DemoModalProps> = ({
   isOpen,
   onClose,
   title,
+  description,
   children,
   codeExample
 }) => {
@@ -30,7 +32,10 @@ const DemoModal: React.FC<DemoModalProps> = ({
     >
       <div className="bg-white rounded-lg w-full max-w-3xl max-h-[90vh] overflow-hidden">
         <div className="border-b border-gray-200 px-6 py-4 flex justify-between items-center">
-          <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
+          <div>
+            <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
+            <p className="text-sm text-gray-600 mt-1">{description}</p>
+          </div>
           <button
             onClick={onClose}
             className="text-gray-500 hover:text-gray-700"

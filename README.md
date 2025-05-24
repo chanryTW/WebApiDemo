@@ -1,80 +1,101 @@
-# Web API Demo 網頁 API 演示
+# Web API Demo 網頁 API 演示 (Web API Demonstration)
 
-展示了 Web API 的使用方法和實際應用場景。
-This project demonstrates the usage and practical applications of Web APIs.
+這個專案展示了現代網頁 API 的使用方法和實際應用場景。透過互動式的演示和程式碼範例，幫助開發者更好地理解和使用這些強大的網頁功能。
 
-## 功能特點 Features
+This project demonstrates the usage and practical applications of modern Web APIs. Through interactive demonstrations and code examples, it helps developers better understand and utilize these powerful web features.
 
-### 系統相關 API System-related APIs
-- 剪貼簿 API (Clipboard API)
-- 全螢幕 API (Fullscreen API)
-- 電池狀態 API (Battery Status API)
-- 震動 API (Vibration API)
-- 網路資訊 API (Network Information API)
+## 功能特色 (Features)
 
-### 互動相關 API Interaction APIs
-- 交叉觀察器 API (Intersection Observer API)
-- 尺寸觀察器 API (Resize Observer API)
-- 頁面可見度 API (Page Visibility API)
-- 指針事件 API (Pointer Events API)
-- 網頁語音 API (Web Speech API)
+- 清晰的 API 分類展示 (Clear API categorization)
+- 互動式演示界面 (Interactive demo interface)
+- 即時程式碼範例 (Real-time code examples)
+- 瀏覽器相容性資訊 (Browser compatibility information)
+- MDN 文件和 Can I Use 連結 (MDN documentation and Can I Use links)
 
-### 檔案與多媒體 API File and Media APIs
-- 檔案 API (File API)
-- 拖放 API (Drag and Drop API)
-- 網頁音訊 API (Web Audio API)
+## API 分類 (API Categories)
 
-### 背景處理 API Background Processing APIs
-- 網頁通知 API (Web Notifications API)
-- 網頁工作者 API (Web Workers API)
+### 1. 多媒體與串流 (Multimedia & Streaming)
+- Media Devices API：存取鏡頭和麥克風 (Access to camera and microphone)
+- Web Audio API：音訊處理和合成 (Audio processing and synthesis)
+- Screen Capture API：螢幕錄製 (Screen recording)
+- Picture-in-Picture API：畫中畫功能 (Picture-in-Picture functionality)
+- Web MIDI API：MIDI 設備互動 (MIDI device interaction)
 
-## 技術棧 Tech Stack
+### 2. 裝置存取 (Device Access)
+- Geolocation API：地理位置 (Geographic location)
+- Device Motion & Orientation API：動作感應 (Motion sensing)
+- Battery API：電池狀態 (Battery status)
+- Vibration API：震動控制 (Vibration control)
+- Web Bluetooth API：藍牙連接 (Bluetooth connection)
+- Contact Picker API：通訊錄存取 (Contact list access)
 
-- React 18
-- TypeScript
-- Tailwind CSS
-- Vite
+### 3. 儲存與檔案 (Storage & Files)
+- Local Storage API：本地儲存 (Local storage)
+- File API：檔案操作 (File operations)
+- Drag and Drop API：拖放功能 (Drag and drop functionality)
 
-## 開始使用 Getting Started
+### 4. 通訊與連接 (Communication & Connectivity)
+- WebRTC API：點對點通訊 (Peer-to-peer communication)
+- Broadcast Channel API：跨視窗通訊 (Cross-window communication)
+- Web Share API：系統分享功能 (System sharing functionality)
 
-### 系統需求 Requirements
+### 5. 效能與背景處理 (Performance & Background Processing)
+- Web Workers API：背景執行緒 (Background threads)
+- Background Tasks API：閒置時間任務 (Idle time tasks)
 
-- Node.js 16.0 或更高版本 (or higher)
-- npm 7.0 或更高版本 (or higher)
+### 6. 圖形與動畫 (Graphics & Animation)
+- WebGL API：3D 圖形渲染 (3D graphics rendering)
+- Web Animations API：動畫控制 (Animation control)
 
-### 安裝 Installation
+### 7. 互動與觀察 (Interaction & Observation)
+- Gamepad API：遊戲手把支援 (Gamepad support)
+- Pointer Events API：指針輸入 (Pointer input)
+- Intersection Observer API：元素可見性 (Element visibility)
+- Resize Observer API：元素大小變化 (Element size changes)
+- Page Visibility API：頁面可見狀態 (Page visibility state)
 
+### 8. 系統整合 (System Integration)
+- Clipboard API：剪貼簿操作 (Clipboard operations)
+- Fullscreen API：全螢幕顯示 (Fullscreen display)
+- Web Notifications API：系統通知 (System notifications)
+- Network Information API：網路狀態 (Network status)
+
+### 9. 安全與支付 (Security & Payment)
+- Web Crypto API：加密功能 (Encryption functionality)
+- Payment Request API：支付介面 (Payment interface)
+
+## 開始使用 (Getting Started)
+
+1. 安裝依賴 (Install dependencies)：
 ```bash
-# 複製專案 Clone the repository
-git clone https://github.com/yourusername/web-api-demo.git
-
-# 進入專案目錄 Navigate to the project directory
-cd web-api-demo
-
-# 安裝依賴 Install dependencies
 npm install
 ```
 
-### 開發 Development
-
+2. 啟動開發伺服器 (Start development server)：
 ```bash
-# 啟動開發伺服器 Start development server
 npm run dev
 ```
 
-## 專案結構 Project Structure
+3. 打開瀏覽器訪問 (Open in browser)：
+```
+http://localhost:5173
+```
 
-```
-web-api-demo/
-├── src/
-│   ├── components/
-│   │   ├── demos/          # API 演示組件 (API demo components)
-│   │   └── common/         # 共用組件 (Common components)
-│   │   
-│   ├── workers/           # Web Workers
-│   ├── data/             # 靜態資料 (Static data)
-│   ├── pages/            # 頁面組件 (Page components)
-│   └── App.tsx           # 應用程式入口 (Application entry)
-├── public/              # 靜態資源 (Static assets)
-└── index.html          # HTML 模板 (HTML template)
-```
+## 瀏覽器支援 (Browser Support)
+
+本專案中的 API 支援度依據各個瀏覽器版本而不同，詳細資訊請參考各 API 展示頁面的瀏覽器相容性表格。
+
+API support in this project varies depending on browser versions. Please refer to the browser compatibility tables on each API demonstration page for detailed information.
+
+## 技術棧 (Tech Stack)
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+
+## 相關資源 (Related Resources)
+
+- [MDN Web API 參考 (MDN Web API Reference)](https://developer.mozilla.org/zh-TW/docs/Web/API)
+- [Can I use](https://caniuse.com/)
+- [Web API 索引 (Web API Index)](https://developer.mozilla.org/zh-TW/docs/Web/API)
