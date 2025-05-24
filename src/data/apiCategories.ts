@@ -48,7 +48,7 @@ const openDemo = async (DemoComponent: React.ComponentType<{ isOpen: boolean; on
 export const categories: ApiCategory[] = [
   {
     id: 'storage',
-    name: '儲存相關 API',
+    name: '儲存相關',
     description: '包含 LocalStorage、SessionStorage、IndexedDB 等儲存相關的 API',
     apis: [
       {
@@ -73,7 +73,7 @@ export const categories: ApiCategory[] = [
   },
   {
     id: 'media',
-    name: '媒體相關 API',
+    name: '媒體相關',
     description: '包含音訊、視訊、WebRTC 等媒體相關的 API',
     apis: [
       {
@@ -98,7 +98,7 @@ export const categories: ApiCategory[] = [
   },
   {
     id: 'sharing',
-    name: '分享相關 API',
+    name: '分享相關',
     description: '包含 Web Share API 等分享功能相關的 API',
     apis: [
       {
@@ -123,7 +123,7 @@ export const categories: ApiCategory[] = [
   },
   {
     id: 'sensors',
-    name: '感應器 API',
+    name: '感應器',
     description: '包含地理位置、陀螺儀、加速度計等感應器相關的 API',
     apis: [
       {
@@ -140,6 +140,200 @@ export const categories: ApiCategory[] = [
         canIUseUrl: 'https://caniuse.com/geolocation',
         demo: () => {
           import('../components/demos/GeolocationDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      }
+    ]
+  },
+  {
+    id: 'system',
+    name: '系統相關',
+    description: '包含剪貼簿、全螢幕、電池狀態、震動、網路狀態等系統相關的 API',
+    apis: [
+      {
+        id: 'clipboard',
+        name: 'Clipboard API',
+        description: '提供對系統剪貼簿的讀寫功能，可以複製和貼上文字、圖片等內容',
+        browserSupport: {
+          chrome: '66.0',
+          firefox: '63.0',
+          safari: '13.1',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Clipboard_API',
+        canIUseUrl: 'https://caniuse.com/async-clipboard',
+        demo: () => {
+          import('../components/demos/ClipboardDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'fullscreen',
+        name: 'Fullscreen API',
+        description: '允許將網頁元素全螢幕顯示，適用於影片播放、遊戲等場景',
+        browserSupport: {
+          chrome: '15.0',
+          firefox: '9.0',
+          safari: '5.1',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Fullscreen_API',
+        canIUseUrl: 'https://caniuse.com/fullscreen',
+        demo: () => {
+          import('../components/demos/FullscreenDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'battery',
+        name: 'Battery API',
+        description: '提供裝置電池狀態的資訊，包括電量、充電狀態等',
+        browserSupport: {
+          chrome: '38.0',
+          firefox: '31.0',
+          safari: 'N/A',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Battery_Status_API',
+        canIUseUrl: 'https://caniuse.com/battery-status',
+        demo: () => {
+          import('../components/demos/BatteryDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'vibration',
+        name: 'Vibration API',
+        description: '控制裝置的震動功能，可用於遊戲、通知等互動效果',
+        browserSupport: {
+          chrome: '32.0',
+          firefox: '16.0',
+          safari: 'N/A',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Vibration_API',
+        canIUseUrl: 'https://caniuse.com/vibration',
+        demo: () => {
+          import('../components/demos/VibrationDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'networkInfo',
+        name: 'Network Information API',
+        description: '提供網路連線狀態的資訊，包括連線類型、速度等',
+        browserSupport: {
+          chrome: '61.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Network_Information_API',
+        canIUseUrl: 'https://caniuse.com/netinfo',
+        demo: () => {
+          import('../components/demos/NetworkInfoDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      }
+    ]
+  },
+  {
+    id: 'interaction',
+    name: '互動相關',
+    description: '包含元素觀察、指針事件、語音辨識等互動相關的 API',
+    apis: [
+      {
+        id: 'intersectionObserver',
+        name: 'Intersection Observer',
+        description: '監測元素進入或離開視窗可見範圍，常用於實現無限捲動、延遲載入等功能',
+        browserSupport: {
+          chrome: '51.0',
+          firefox: '55.0',
+          safari: '12.2',
+          edge: '15.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Intersection_Observer_API',
+        canIUseUrl: 'https://caniuse.com/intersectionobserver',
+        demo: () => {
+          import('../components/demos/IntersectionObserverDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'resizeObserver',
+        name: 'Resize Observer',
+        description: '監測元素大小變化，可用於響應式設計、動態布局調整等場景',
+        browserSupport: {
+          chrome: '64.0',
+          firefox: '69.0',
+          safari: '13.1',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Resize_Observer_API',
+        canIUseUrl: 'https://caniuse.com/resizeobserver',
+        demo: () => {
+          import('../components/demos/ResizeObserverDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'pageVisibility',
+        name: 'Page Visibility',
+        description: '檢測網頁是否可見，可用於暫停視訊播放、停止動畫等功能',
+        browserSupport: {
+          chrome: '33.0',
+          firefox: '18.0',
+          safari: '7.0',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Page_Visibility_API',
+        canIUseUrl: 'https://caniuse.com/pagevisibility',
+        demo: () => {
+          import('../components/demos/PageVisibilityDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'pointerEvents',
+        name: 'Pointer Events',
+        description: '統一處理滑鼠、觸控和手寫筆等各種指針輸入，提供更好的跨裝置互動體驗',
+        browserSupport: {
+          chrome: '55.0',
+          firefox: '59.0',
+          safari: '13.0',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Pointer_events',
+        canIUseUrl: 'https://caniuse.com/pointer',
+        demo: () => {
+          import('../components/demos/PointerEventsDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'webSpeech',
+        name: 'Web Speech',
+        description: '提供語音識別和語音合成功能，可用於語音指令、文字轉語音等應用',
+        browserSupport: {
+          chrome: '33.0',
+          firefox: 'N/A',
+          safari: '7.0',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Speech_API',
+        canIUseUrl: 'https://caniuse.com/speech-synthesis',
+        demo: () => {
+          import('../components/demos/WebSpeechDemo').then(module => {
             openDemo(module.default);
           });
         }
