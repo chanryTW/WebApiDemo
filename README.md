@@ -1,5 +1,7 @@
 # Web API Demo 網頁 API 演示 (Web API Demonstration)
 
+![Demo Preview](./public/demo.png)
+
 這個專案展示了現代網頁 API 的使用方法和實際應用場景。透過互動式的演示和程式碼範例，幫助開發者更好地理解和使用這些強大的網頁功能。
 
 This project demonstrates the usage and practical applications of modern Web APIs. Through interactive demonstrations and code examples, it helps developers better understand and utilize these powerful web features.
