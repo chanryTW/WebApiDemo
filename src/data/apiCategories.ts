@@ -45,7 +45,7 @@ const openDemo = async (DemoComponent: React.ComponentType<{ isOpen: boolean; on
   }
 };
 
-export const categories: ApiCategory[] = [
+export const apiCategories: ApiCategory[] = [
   {
     id: 'storage',
     name: '儲存相關',
@@ -443,5 +443,104 @@ export const categories: ApiCategory[] = [
         }
       }
     ]
+  },
+  {
+    id: 'communication',
+    name: '通訊與連接',
+    description: '用於實現即時通訊、支付和設備連接的 Web API。',
+    apis: [
+      {
+        id: 'webrtc',
+        name: 'WebRTC API',
+        description: '實現瀏覽器間的點對點通訊，支援視訊、音訊和資料傳輸。',
+        browserSupport: {
+          chrome: '23.0',
+          firefox: '22.0',
+          safari: '11.0',
+          edge: '15.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/WebRTC_API',
+        canIUseUrl: 'https://caniuse.com/rtcpeerconnection',
+        demo: () => {
+          import('../components/demos/WebRTCDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'paymentRequest',
+        name: 'Payment Request API',
+        description: '提供標準化的支付介面，簡化網上支付流程。',
+        browserSupport: {
+          chrome: '61.0',
+          firefox: 'N/A',
+          safari: '11.1',
+          edge: '15.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Payment_Request_API',
+        canIUseUrl: 'https://caniuse.com/payment-request',
+        demo: () => {
+          import('../components/demos/PaymentRequestDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'webShare',
+        name: 'Web Share API',
+        description: '使用系統原生的分享功能，分享文字、連結和檔案。',
+        browserSupport: {
+          chrome: '89.0',
+          firefox: 'N/A',
+          safari: '12.0',
+          edge: '89.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Share_API',
+        canIUseUrl: 'https://caniuse.com/web-share',
+        demo: () => {
+          import('../components/demos/WebShareDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'webBluetooth',
+        name: 'Web Bluetooth API',
+        description: '透過藍牙連接和控制周邊設備。',
+        browserSupport: {
+          chrome: '56.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Bluetooth_API',
+        canIUseUrl: 'https://caniuse.com/web-bluetooth',
+        demo: () => {
+          import('../components/demos/WebBluetoothDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'webgl',
+        name: 'WebGL API',
+        description: '基於 OpenGL ES 的 3D 圖形渲染 API。',
+        browserSupport: {
+          chrome: '9.0',
+          firefox: '4.0',
+          safari: '5.1',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/WebGL_API',
+        canIUseUrl: 'https://caniuse.com/webgl',
+        demo: () => {
+          import('../components/demos/WebGLDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      }
+    ]
   }
-]; 
+];
+
+export const categories = apiCategories; 

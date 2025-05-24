@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/node": "^22.15.21",
     "@types/react-router-dom": "^5.3.3",
+    "gl-matrix": "^3.4.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.0"
@@ -20,6 +21,7 @@
     "@eslint/js": "^9.25.0",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
+    "@types/web-bluetooth": "^0.0.21",
     "@vitejs/plugin-react": "^4.5.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.25.0",

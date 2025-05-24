@@ -6,10 +6,12 @@ interface BrowserBadgeProps {
   version: string;
 }
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const BrowserBadge: React.FC<BrowserBadgeProps> = ({ browser, version }) => (
   <div className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
     <img 
-      src={`/browsers/${browser}.svg`} 
+      src={`${baseUrl}/browsers/${browser}.svg`} 
       alt={browser} 
       className="w-4 h-4"
     />
