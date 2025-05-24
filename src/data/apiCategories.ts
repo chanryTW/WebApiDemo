@@ -339,5 +339,109 @@ export const categories: ApiCategory[] = [
         }
       }
     ]
+  },
+  {
+    id: 'fileAndMedia',
+    name: '檔案與多媒體',
+    description: '包含檔案操作、拖放功能、音訊處理等相關的 API',
+    apis: [
+      {
+        id: 'fileApi',
+        name: 'File API',
+        description: '提供檔案的讀取和操作功能，支援檔案預覽、上傳等功能',
+        browserSupport: {
+          chrome: '7.0',
+          firefox: '3.6',
+          safari: '6.0',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/File_API',
+        canIUseUrl: 'https://caniuse.com/fileapi',
+        demo: () => {
+          import('../components/demos/FileApiDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'dragAndDrop',
+        name: 'Drag and Drop API',
+        description: '實現元素的拖放功能，支援檔案拖放、元素排序等互動',
+        browserSupport: {
+          chrome: '4.0',
+          firefox: '3.5',
+          safari: '3.1',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/HTML_Drag_and_Drop_API',
+        canIUseUrl: 'https://caniuse.com/dragndrop',
+        demo: () => {
+          import('../components/demos/DragAndDropDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'webAudio',
+        name: 'Web Audio API',
+        description: '提供強大的音訊處理和合成功能，可用於音效、音樂播放等應用',
+        browserSupport: {
+          chrome: '14.0',
+          firefox: '25.0',
+          safari: '6.0',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Audio_API',
+        canIUseUrl: 'https://caniuse.com/audio-api',
+        demo: () => {
+          import('../components/demos/WebAudioDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      }
+    ]
+  },
+  {
+    id: 'background',
+    name: '背景處理',
+    description: '包含網頁通知、背景執行緒等在背景執行的功能',
+    apis: [
+      {
+        id: 'notifications',
+        name: 'Web Notifications',
+        description: '發送系統級的通知訊息，即使用戶切換到其他應用程式也能收到提醒',
+        browserSupport: {
+          chrome: '22.0',
+          firefox: '22.0',
+          safari: '6.0',
+          edge: '14.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Notifications_API',
+        canIUseUrl: 'https://caniuse.com/notifications',
+        demo: () => {
+          import('../components/demos/NotificationsDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'webWorkers',
+        name: 'Web Workers',
+        description: '在背景執行複雜的計算任務，避免阻塞主執行緒，提升應用程式效能',
+        browserSupport: {
+          chrome: '4.0',
+          firefox: '3.5',
+          safari: '4.0',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Workers_API',
+        canIUseUrl: 'https://caniuse.com/webworkers',
+        demo: () => {
+          import('../components/demos/WebWorkersDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      }
+    ]
   }
 ]; 
