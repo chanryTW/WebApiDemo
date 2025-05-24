@@ -1,352 +1,210 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import DemoModal from '../DemoModal';
 
-interface WebSpeechDemoProps {
+interface WebSpeechProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-interface Voice {
-  name: string;
-  lang: string;
-}
-
-interface RecognitionResult {
-  text: string;
-  isFinal: boolean;
-  timestamp: number;
+interface SpeechRecognitionResult {
+  transcript: string;
+  confidence: number;
 }
 
 interface SpeechRecognitionEvent {
   results: {
-    length: number;
     [index: number]: {
-      [index: number]: {
-        transcript: string;
-      };
-      isFinal: boolean;
+      [index: number]: SpeechRecognitionResult;
     };
+    length: number;
   };
 }
 
 interface SpeechRecognitionErrorEvent {
   error: string;
+  message: string;
 }
 
-interface WebkitSpeechRecognition {
+interface SpeechRecognition {
+  lang: string;
   continuous: boolean;
   interimResults: boolean;
-  lang: string;
-  onresult: (event: SpeechRecognitionEvent) => void;
-  onerror: (event: SpeechRecognitionErrorEvent) => void;
+  onstart: () => void;
   onend: () => void;
+  onerror: (event: SpeechRecognitionErrorEvent) => void;
+  onresult: (event: SpeechRecognitionEvent) => void;
   start: () => void;
   stop: () => void;
 }
 
-const WebSpeechDemo: React.FC<WebSpeechDemoProps> = ({ isOpen, onClose }) => {
-  const [voices, setVoices] = useState<Voice[]>([]);
-  const [selectedVoice, setSelectedVoice] = useState<string>('');
-  const [text, setText] = useState<string>('');
-  const [pitch, setPitch] = useState<number>(1);
-  const [rate, setRate] = useState<number>(1);
-  const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
-  const [isListening, setIsListening] = useState<boolean>(false);
-  const [recognitionResults, setRecognitionResults] = useState<RecognitionResult[]>([]);
-  const [error, setError] = useState<string>('');
+declare global {
+  interface Window {
+    SpeechRecognition: new () => SpeechRecognition;
+    webkitSpeechRecognition: new () => SpeechRecognition;
+  }
+}
 
-  const recognitionRef = useRef<WebkitSpeechRecognition | null>(null);
+const WebSpeechDemo: React.FC<WebSpeechProps> = ({ isOpen, onClose }) => {
+  const [isSpeechRecognitionSupported, setIsSpeechRecognitionSupported] = useState(false);
+  const [isSpeechSynthesisSupported, setIsSpeechSynthesisSupported] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const [transcript, setTranscript] = useState('');
+  const [textToSpeak, setTextToSpeak] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     // 檢查瀏覽器支援
-    if (!('speechSynthesis' in window)) {
-      setError('您的瀏覽器不支援語音合成 API');
-      return;
-    }
-
-    // 載入可用的語音
-    const loadVoices = () => {
-      const availableVoices = window.speechSynthesis.getVoices();
-      const voiceList = availableVoices
-        .filter(voice => voice.lang.startsWith('zh') || voice.lang.startsWith('en'))
-        .map(voice => ({
-          name: voice.name,
-          lang: voice.lang
-        }));
-      setVoices(voiceList);
-      if (voiceList.length > 0) {
-        setSelectedVoice(voiceList[0].name);
-      }
-    };
-
-    loadVoices();
-    window.speechSynthesis.onvoiceschanged = loadVoices;
-
-    // 初始化語音辨識
-    if ('webkitSpeechRecognition' in window) {
-      const SpeechRecognition = window.webkitSpeechRecognition as new () => WebkitSpeechRecognition;
-      const recognition = new SpeechRecognition();
-      recognition.continuous = true;
-      recognition.interimResults = true;
-      recognition.lang = 'zh-TW';
-
-      recognition.onresult = (event: SpeechRecognitionEvent) => {
-        const results = Array.from({ length: event.results.length }, (_, i) => ({
-          text: event.results[i][0].transcript,
-          isFinal: event.results[i].isFinal,
-          timestamp: Date.now()
-        }));
-        setRecognitionResults(prev => [...results, ...prev].slice(0, 5));
-      };
-
-      recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
-        setError(`語音辨識錯誤: ${event.error}`);
-        setIsListening(false);
-      };
-
-      recognition.onend = () => {
-        setIsListening(false);
-      };
-
-      recognitionRef.current = recognition;
-    } else {
-      setError('您的瀏覽器不支援語音辨識 API');
-    }
-
-    return () => {
-      recognitionRef.current?.stop();
-      window.speechSynthesis.cancel();
-    };
+    setIsSpeechRecognitionSupported('SpeechRecognition' in window || 'webkitSpeechRecognition' in window);
+    setIsSpeechSynthesisSupported('speechSynthesis' in window);
   }, []);
 
-  const handleSpeak = () => {
-    if (!text.trim()) return;
+  const startListening = useCallback(() => {
+    if (!isSpeechRecognitionSupported) return;
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    const selectedVoiceObj = window.speechSynthesis.getVoices()
-      .find(voice => voice.name === selectedVoice);
+    const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognitionAPI();
     
-    if (selectedVoiceObj) {
-      utterance.voice = selectedVoiceObj;
-    }
-    
-    utterance.pitch = pitch;
-    utterance.rate = rate;
+    recognition.lang = 'zh-TW';
+    recognition.continuous = true;
+    recognition.interimResults = true;
 
-    utterance.onstart = () => setIsSpeaking(true);
-    utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = () => {
-      setIsSpeaking(false);
-      setError('語音合成時發生錯誤');
+    recognition.onstart = () => {
+      setIsListening(true);
+      setError('');
     };
 
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utterance);
-  };
+    recognition.onresult = (event: SpeechRecognitionEvent) => {
+      const result = event.results[event.results.length - 1][0];
+      setTranscript(result.transcript);
+    };
 
-  const toggleListening = () => {
-    if (!recognitionRef.current) return;
+    recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
+      setError(`錯誤：${event.error}`);
+      setIsListening(false);
+    };
 
-    if (isListening) {
-      recognitionRef.current.stop();
-    } else {
-      setError('');
-      recognitionRef.current.start();
-      setIsListening(true);
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+
+    try {
+      recognition.start();
+    } catch (err) {
+      setError(`錯誤：${err instanceof Error ? err.message : String(err)}`);
     }
-  };
+  }, [isSpeechRecognitionSupported]);
 
-  const formatTime = (timestamp: number) => {
-    return new Date(timestamp).toLocaleTimeString('zh-TW', {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
-    });
-  };
+  const stopListening = useCallback(() => {
+    if (!isSpeechRecognitionSupported) return;
 
-  const codeExample = `// 語音合成
-const utterance = new SpeechSynthesisUtterance('要說的文字');
-utterance.voice = speechSynthesis.getVoices()[0];
-utterance.pitch = 1; // 音調
-utterance.rate = 1;  // 速度
-speechSynthesis.speak(utterance);
+    const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognitionAPI();
+    recognition.stop();
+    setIsListening(false);
+  }, [isSpeechRecognitionSupported]);
 
-// 語音辨識
-const recognition = new webkitSpeechRecognition();
+  const speak = useCallback(() => {
+    if (!isSpeechSynthesisSupported || !textToSpeak) return;
+
+    const utterance = new SpeechSynthesisUtterance(textToSpeak);
+    utterance.lang = 'zh-TW';
+    
+    window.speechSynthesis.speak(utterance);
+  }, [isSpeechSynthesisSupported, textToSpeak]);
+
+  const codeExample = `
+// 語音識別
+const recognition = new SpeechRecognition();
+recognition.lang = 'zh-TW';
 recognition.continuous = true;
 recognition.interimResults = true;
-recognition.lang = 'zh-TW';
 
 recognition.onresult = (event) => {
-  const transcript = event.results[0][0].transcript;
-  console.log('辨識結果：', transcript);
+  const transcript = event.results[event.results.length - 1][0].transcript;
+  console.log('識別結果：', transcript);
 };
 
-recognition.start();`;
+recognition.start();
+
+// 語音合成
+const utterance = new SpeechSynthesisUtterance('要說的文字');
+utterance.lang = 'zh-TW';
+window.speechSynthesis.speak(utterance);
+  `.trim();
 
   return (
     <DemoModal
       isOpen={isOpen}
       onClose={onClose}
-      title="Web Speech API 演示"
-      codeExample={codeExample}
+      title="Web Speech API 示範"
+      description="展示如何使用 Web Speech API 進行語音識別和語音合成。"
     >
-      <div className="space-y-6">
+      <div className="space-y-4">
+        <div className="bg-yellow-50 p-4 rounded-md space-y-2">
+          <p className="text-yellow-800">
+            語音識別支援：{isSpeechRecognitionSupported ? '✅ 支援' : '❌ 不支援'}
+          </p>
+          <p className="text-yellow-800">
+            語音合成支援：{isSpeechSynthesisSupported ? '✅ 支援' : '❌ 不支援'}
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          <div>
+            <h3 className="font-medium mb-2">語音識別</h3>
+            <div className="space-x-4 mb-2">
+              <button
+                onClick={startListening}
+                disabled={!isSpeechRecognitionSupported || isListening}
+                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"
+              >
+                {isListening ? '正在聆聽...' : '開始聆聽'}
+              </button>
+              <button
+                onClick={stopListening}
+                disabled={!isSpeechRecognitionSupported || !isListening}
+                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 disabled:opacity-50"
+              >
+                停止聆聽
+              </button>
+            </div>
+            <div className="bg-gray-100 p-4 rounded-md min-h-[100px]">
+              {transcript || '（尚未有識別結果）'}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-medium mb-2">語音合成</h3>
+            <div className="space-y-2">
+              <textarea
+                value={textToSpeak}
+                onChange={(e) => setTextToSpeak(e.target.value)}
+                placeholder="輸入要朗讀的文字"
+                className="w-full p-2 border rounded-md"
+                rows={3}
+              />
+              <button
+                onClick={speak}
+                disabled={!isSpeechSynthesisSupported || !textToSpeak}
+                className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:opacity-50"
+              >
+                朗讀文字
+              </button>
+            </div>
+          </div>
+        </div>
+
         {error && (
-          <div className="bg-red-50 p-4 rounded-lg">
-            <p className="text-red-700">{error}</p>
+          <div className="bg-red-50 p-4 rounded-md">
+            <p className="text-red-500">{error}</p>
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-gray-700">
-              語音合成
-            </h3>
-            
-            <div className="space-y-4 p-4 bg-white rounded-lg border border-gray-200">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  選擇語音
-                </label>
-                <select
-                  value={selectedVoice}
-                  onChange={(e) => setSelectedVoice(e.target.value)}
-                  className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                >
-                  {voices.map((voice) => (
-                    <option key={voice.name} value={voice.name}>
-                      {voice.name} ({voice.lang})
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  輸入文字
-                </label>
-                <textarea
-                  value={text}
-                  onChange={(e) => setText(e.target.value)}
-                  className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                  rows={3}
-                  placeholder="輸入要轉換成語音的文字..."
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    音調 ({pitch.toFixed(1)})
-                  </label>
-                  <input
-                    type="range"
-                    min="0.5"
-                    max="2"
-                    step="0.1"
-                    value={pitch}
-                    onChange={(e) => setPitch(Number(e.target.value))}
-                    className="w-full"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    速度 ({rate.toFixed(1)})
-                  </label>
-                  <input
-                    type="range"
-                    min="0.5"
-                    max="2"
-                    step="0.1"
-                    value={rate}
-                    onChange={(e) => setRate(Number(e.target.value))}
-                    className="w-full"
-                  />
-                </div>
-              </div>
-
-              <button
-                onClick={handleSpeak}
-                disabled={isSpeaking || !text.trim()}
-                className={`
-                  w-full px-4 py-2 rounded-md text-white font-medium
-                  ${isSpeaking
-                    ? 'bg-blue-400 cursor-not-allowed'
-                    : 'bg-blue-500 hover:bg-blue-600'
-                  }
-                `}
-              >
-                {isSpeaking ? '正在說話...' : '開始說話'}
-              </button>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-gray-700">
-              語音辨識
-            </h3>
-            
-            <div className="space-y-4 p-4 bg-white rounded-lg border border-gray-200">
-              <button
-                onClick={toggleListening}
-                className={`
-                  w-full px-4 py-2 rounded-md text-white font-medium
-                  ${isListening
-                    ? 'bg-red-500 hover:bg-red-600'
-                    : 'bg-green-500 hover:bg-green-600'
-                  }
-                `}
-              >
-                {isListening ? '停止辨識' : '開始辨識'}
-              </button>
-
-              <div className="space-y-2">
-                {recognitionResults.map((result, index) => (
-                  <div
-                    key={index}
-                    className={`
-                      p-3 rounded-lg border
-                      ${result.isFinal
-                        ? 'bg-green-50 border-green-200'
-                        : 'bg-yellow-50 border-yellow-200'
-                      }
-                    `}
-                  >
-                    <div className="flex justify-between items-start mb-1">
-                      <span className={`
-                        text-sm font-medium
-                        ${result.isFinal ? 'text-green-700' : 'text-yellow-700'}
-                      `}>
-                        {result.isFinal ? '最終結果' : '臨時結果'}
-                      </span>
-                      <span className="text-xs text-gray-500">
-                        {formatTime(result.timestamp)}
-                      </span>
-                    </div>
-                    <p className={`
-                      text-sm
-                      ${result.isFinal ? 'text-green-600' : 'text-yellow-600'}
-                    `}>
-                      {result.text}
-                    </p>
-                  </div>
-                ))}
-
-                {recognitionResults.length === 0 && isListening && (
-                  <div className="text-center py-8 text-gray-500">
-                    正在聆聽...請說話
-                  </div>
-                )}
-
-                {recognitionResults.length === 0 && !isListening && (
-                  <div className="text-center py-8 text-gray-500">
-                    尚無辨識結果
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
+        <div className="mt-6">
+          <p className="font-medium mb-2">使用範例：</p>
+          <pre className="bg-gray-100 p-4 rounded-md overflow-x-auto">
+            <code>{codeExample}</code>
+          </pre>
         </div>
       </div>
     </DemoModal>

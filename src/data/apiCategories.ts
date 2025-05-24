@@ -255,6 +255,42 @@ export const apiCategories: ApiCategory[] = [
             openDemo(module.default);
           });
         }
+      },
+      {
+        id: 'ambientLight',
+        name: 'Ambient Light Sensor API',
+        description: '讀取環境光線強度，可用於自動調整螢幕亮度等功能',
+        browserSupport: {
+          chrome: '85.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: '85.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/AmbientLightSensor',
+        canIUseUrl: 'https://caniuse.com/ambient-light',
+        demo: () => {
+          import('../components/demos/AmbientLightDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'usb',
+        name: 'USB API',
+        description: '允許網頁應用程式與 USB 裝置進行通訊',
+        browserSupport: {
+          chrome: '61.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/USB',
+        canIUseUrl: 'https://caniuse.com/webusb',
+        demo: () => {
+          import('../components/demos/USBDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
       }
     ]
   },
@@ -560,6 +596,24 @@ export const apiCategories: ApiCategory[] = [
             openDemo(module.default);
           });
         }
+      },
+      {
+        id: 'webSpeech',
+        name: 'Web Speech API',
+        description: '提供語音識別和語音合成功能，支援多種語言',
+        browserSupport: {
+          chrome: '33.0',
+          firefox: '44.0',
+          safari: '7.0',
+          edge: '14.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Speech_API',
+        canIUseUrl: 'https://caniuse.com/speech-synthesis',
+        demo: () => {
+          import('../components/demos/WebSpeechDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
       }
     ]
   },
@@ -639,6 +693,24 @@ export const apiCategories: ApiCategory[] = [
             openDemo(module.default);
           });
         }
+      },
+      {
+        id: 'webLocks',
+        name: 'Web Locks API',
+        description: '提供資源鎖定機制，防止多個標籤頁或工作者同時訪問相同資源',
+        browserSupport: {
+          chrome: '69.0',
+          firefox: '69.0',
+          safari: 'N/A',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Locks_API',
+        canIUseUrl: 'https://caniuse.com/web-locks',
+        demo: () => {
+          import('../components/demos/WebLocksDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
       }
     ]
   },
@@ -679,6 +751,24 @@ export const apiCategories: ApiCategory[] = [
         canIUseUrl: 'https://caniuse.com/payment-request',
         demo: () => {
           import('../components/demos/PaymentRequestDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'credentialManagement',
+        name: 'Credential Management API',
+        description: '管理和存儲用戶憑證，簡化登入流程',
+        browserSupport: {
+          chrome: '51.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Credential_Management_API',
+        canIUseUrl: 'https://caniuse.com/credential-management',
+        demo: () => {
+          import('../components/demos/CredentialManagementDemo').then(module => {
             openDemo(module.default);
           });
         }
