@@ -23,7 +23,7 @@ const PageVisibilityDemo: React.FC<PageVisibilityDemoProps> = ({ isOpen, onClose
       setEvents(prev => [
         {
           timestamp: Date.now(),
-          state: newState ? 'visible' : 'hidden'
+          state: newState ? 'visible' as const : 'hidden' as const
         },
         ...prev
       ].slice(0, 5));

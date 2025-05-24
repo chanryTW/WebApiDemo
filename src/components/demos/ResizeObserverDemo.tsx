@@ -16,7 +16,7 @@ const ResizeObserverDemo: React.FC<ResizeObserverDemoProps> = ({ isOpen, onClose
   const [isResizing, setIsResizing] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<ResizeObserver | null>(null);
-  const resizeTimeoutRef = useRef<NodeJS.Timeout>();
+  const resizeTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   useEffect(() => {
     if (!elementRef.current) return;
