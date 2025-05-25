@@ -16,55 +16,129 @@ This project demonstrates the usage and practical applications of modern Web API
 
 ## API 分類 (API Categories)
 
-### 1. 多媒體與串流 (Multimedia & Streaming)
-- Media Devices API：存取鏡頭和麥克風 (Access to camera and microphone)
-- Web Audio API：音訊處理和合成 (Audio processing and synthesis)
-- Screen Capture API：螢幕錄製 (Screen recording)
-- Picture-in-Picture API：畫中畫功能 (Picture-in-Picture functionality)
-- Web MIDI API：MIDI 設備互動 (MIDI device interaction)
+### 多媒體與串流 (Multimedia & Streaming)
+- ✅ MediaDevices API
+- ✅ Web Audio API
+- MediaRecorder API
+- HTMLMediaElement
+- MediaSource API
+- AudioContext
+- VideoTrackList
+- AudioTrackList
+- TextTrackList
+- TextTrackCue
+- Canvas Capture MediaStream API
+- ✅ Picture-in-Picture API
+- ✅ Web MIDI API
+- ✅ Screen Capture API
 
-### 2. 裝置存取 (Device Access)
-- Geolocation API：地理位置 (Geographic location)
-- Device Motion & Orientation API：動作感應 (Motion sensing)
-- Battery API：電池狀態 (Battery status)
-- Vibration API：震動控制 (Vibration control)
-- Web Bluetooth API：藍牙連接 (Bluetooth connection)
-- Contact Picker API：通訊錄存取 (Contact list access)
+### 裝置存取 (Device Access)
+- ✅ Geolocation API
+- ✅ Battery Status API
+- ✅ Vibration API
+- ✅ Web Bluetooth API
+- ✅ WebUSB API
+- ✅ Web Serial API
+- ✅ WebHID API
+- ✅ Ambient Light Sensor API
+- ✅ Device Motion & Orientation API
+- ✅ Contact Picker API
+- Proximity Sensor API
+- Magnetometer API
+- Accelerometer API
+- Gyroscope API
+- ✅ USB API
+- NFC API
+- ✅ Web NFC API
 
-### 3. 儲存與檔案 (Storage & Files)
-- Local Storage API：本地儲存 (Local storage)
-- File API：檔案操作 (File operations)
-- Drag and Drop API：拖放功能 (Drag and drop functionality)
+### 儲存與檔案 (Storage & Files)
+- ✅ Local Storage API
+- Session Storage API
+- IndexedDB API
+- ✅ File API
+- File System Access API
+- ✅ Drag and Drop API
+- Cache API
+- Cookie Store API
 
-### 4. 通訊與連接 (Communication & Connectivity)
-- WebRTC API：點對點通訊 (Peer-to-peer communication)
-- Broadcast Channel API：跨視窗通訊 (Cross-window communication)
-- Web Share API：系統分享功能 (System sharing functionality)
+### 通訊與連接 (Communication & Connectivity)
+- ✅ WebRTC API
+- ✅ Broadcast Channel API
+- WebSocket API
+- ✅ Web Share API
+- Fetch API
+- XMLHttpRequest
+- Beacon API
+- Server-Sent Events (EventSource)
+- ✅ Network Information API
+- WebTransport API
+- Web Push API
 
-### 5. 效能與背景處理 (Performance & Background Processing)
-- Web Workers API：背景執行緒 (Background threads)
-- Background Tasks API：閒置時間任務 (Idle time tasks)
+### 效能與背景處理 (Performance & Background Processing)
+- ✅ Web Workers API
+- Service Workers API
+- Shared Workers API
+- Background Sync API
+- Background Fetch API
+- ✅ Background Tasks API
+- Performance API
+- Navigation Timing API
+- Resource Timing API
+- User Timing API
+- Paint Timing API
+- Long Tasks API
+- Idle Detection API
 
-### 6. 圖形與動畫 (Graphics & Animation)
-- WebGL API：3D 圖形渲染 (3D graphics rendering)
-- Web Animations API：動畫控制 (Animation control)
+### 圖形與動畫 (Graphics & Animation)
+- ✅ WebGL API
+- WebGL2 API
+- ✅ WebGPU API
+- ✅ Web Animations API
+- Canvas API
+- SVG API
+- OffscreenCanvas API
+- ImageBitmap API
+- ImageCapture API
+- CSS Typed OM API
 
-### 7. 互動與觀察 (Interaction & Observation)
-- Gamepad API：遊戲手把支援 (Gamepad support)
-- Pointer Events API：指針輸入 (Pointer input)
-- Intersection Observer API：元素可見性 (Element visibility)
-- Resize Observer API：元素大小變化 (Element size changes)
-- Page Visibility API：頁面可見狀態 (Page visibility state)
+### 互動與觀察 (Interaction & Observation)
+- ✅ Gamepad API
+- ✅ Pointer Events API
+- Touch Events API
+- Mouse Events API
+- Keyboard Events API
+- Wheel Events API
+- ✅ Intersection Observer API
+- ✅ Resize Observer API
+- Mutation Observer API
+- ✅ Page Visibility API
+- ✅ Web Speech API
+- ✅ EyeDropper API
 
-### 8. 系統整合 (System Integration)
-- Clipboard API：剪貼簿操作 (Clipboard operations)
-- Fullscreen API：全螢幕顯示 (Fullscreen display)
-- Web Notifications API：系統通知 (System notifications)
-- Network Information API：網路狀態 (Network status)
+### 系統整合 (System Integration)
+- ✅ Clipboard API
+- ✅ Fullscreen API
+- ✅ Web Notifications API
+- Screen Orientation API
+- Wake Lock API
+- ✅ Web Locks API
+- Presentation API
+- ✅ Payment Request API
+- ✅ Credential Management API
+- ✅ Contact Picker API
+- Badging API
+- File Handling API
 
-### 9. 安全與支付 (Security & Payment)
-- Web Crypto API：加密功能 (Encryption functionality)
-- Payment Request API：支付介面 (Payment interface)
+### 安全與支付 (Security & Payment)
+- ✅ Web Crypto API
+- ✅ Payment Request API
+- ✅ Credential Management API
+- Permissions API
+- Content Security Policy (CSP)
+- Subresource Integrity (SRI)
+- Cross-Origin Resource Sharing (CORS)
+- Referrer Policy API
+- Feature Policy API
 
 ## 開始使用 (Getting Started)
 

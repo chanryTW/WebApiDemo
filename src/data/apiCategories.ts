@@ -291,6 +291,60 @@ export const apiCategories: ApiCategory[] = [
             openDemo(module.default);
           });
         }
+      },
+      {
+        id: 'webSerial',
+        name: 'Web Serial API',
+        description: '讓網頁與串列埠裝置（如 Arduino）通訊',
+        browserSupport: {
+          chrome: '89.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: '89.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Serial',
+        canIUseUrl: 'https://caniuse.com/mdn-api_serial',
+        demo: () => {
+          import('../components/demos/WebSerialDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'webNfc',
+        name: 'Web NFC API',
+        description: '讓網頁讀寫 NFC 標籤，適合物聯網、票證應用',
+        browserSupport: {
+          chrome: '89.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: 'N/A'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_NFC_API',
+        canIUseUrl: 'https://caniuse.com/mdn-api_navigator_nfc',
+        demo: () => {
+          import('../components/demos/WebNFCDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'webHid',
+        name: 'WebHID API',
+        description: '讓網頁與 HID 裝置（如遊戲搖桿、特殊鍵盤）互動',
+        browserSupport: {
+          chrome: '89.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: '89.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/WebHID_API',
+        canIUseUrl: 'https://caniuse.com/mdn-api_hid',
+        demo: () => {
+          import('../components/demos/WebHIDDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
       }
     ]
   },
@@ -499,6 +553,24 @@ export const apiCategories: ApiCategory[] = [
             openDemo(module.default);
           });
         }
+      },
+      {
+        id: 'webGpu',
+        name: 'WebGPU API',
+        description: '新一代高效能圖形與運算 API，適合 3D 遊戲與科學運算',
+        browserSupport: {
+          chrome: '113.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: '113.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/WebGPU_API',
+        canIUseUrl: 'https://caniuse.com/webgpu',
+        demo: () => {
+          import('../components/demos/WebGPUDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
       }
     ]
   },
@@ -611,6 +683,24 @@ export const apiCategories: ApiCategory[] = [
         canIUseUrl: 'https://caniuse.com/speech-synthesis',
         demo: () => {
           import('../components/demos/WebSpeechDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'eyeDropper',
+        name: 'EyeDropper API',
+        description: '讓使用者從畫面上取色，適合設計工具',
+        browserSupport: {
+          chrome: '95.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: '95.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/EyeDropper_API',
+        canIUseUrl: 'https://caniuse.com/mdn-api_eyedropper',
+        demo: () => {
+          import('../components/demos/EyeDropperDemo').then(module => {
             openDemo(module.default);
           });
         }
