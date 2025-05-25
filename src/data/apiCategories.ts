@@ -568,6 +568,96 @@ export const apiCategories: ApiCategory[] = [
             openDemo(module.default);
           });
         }
+      },
+      {
+        id: 'sessionStorage',
+        name: 'Session Storage API',
+        description: '提供網頁 session 持久化儲存功能，可以儲存字串形式的鍵值對資料',
+        browserSupport: {
+          chrome: '5.0',
+          firefox: '2.0',
+          safari: '4.0',
+          edge: '8.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Window/sessionStorage',
+        canIUseUrl: 'https://caniuse.com/namevalue-storage',
+        demo: () => {
+          import('../components/demos/SessionStorageDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'indexedDB',
+        name: 'IndexedDB API',
+        description: '提供結構化資料的本地儲存，支援大量資料與索引',
+        browserSupport: {
+          chrome: '12.0',
+          firefox: '4.0',
+          safari: '10.1',
+          edge: '10.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/IndexedDB_API',
+        canIUseUrl: 'https://caniuse.com/indexeddb',
+        demo: () => {
+          import('../components/demos/IndexedDBDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'fileSystemAccess',
+        name: 'File System Access API',
+        description: '讓網頁直接存取本機檔案系統，讀寫檔案',
+        browserSupport: {
+          chrome: '86.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: '86.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/File_System_Access_API',
+        canIUseUrl: 'https://caniuse.com/file-system-access',
+        demo: () => {
+          import('../components/demos/FileSystemAccessDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'cache',
+        name: 'Cache API',
+        description: '讓網頁快取資源，支援離線與 PWA',
+        browserSupport: {
+          chrome: '40.0',
+          firefox: '39.0',
+          safari: '11.1',
+          edge: '17.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Cache',
+        canIUseUrl: 'https://caniuse.com/cache-api',
+        demo: () => {
+          import('../components/demos/CacheDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'cookieStore',
+        name: 'Cookie Store API',
+        description: '讓網頁以 Promise 方式存取 cookie',
+        browserSupport: {
+          chrome: '86.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: '86.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/CookieStore',
+        canIUseUrl: 'https://caniuse.com/cookie-store-api',
+        demo: () => {
+          import('../components/demos/CookieStoreDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
       }
     ]
   },
@@ -626,6 +716,96 @@ export const apiCategories: ApiCategory[] = [
         canIUseUrl: 'https://caniuse.com/web-share',
         demo: () => {
           import('../components/demos/WebShareDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'webSocket',
+        name: 'WebSocket API',
+        description: '提供雙向即時通訊功能',
+        browserSupport: {
+          chrome: '16.0',
+          firefox: '11.0',
+          safari: '6.0',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/WebSocket',
+        canIUseUrl: 'https://caniuse.com/websockets',
+        demo: () => {
+          import('../components/demos/WebSocketDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'fetch',
+        name: 'Fetch API',
+        description: '現代化的 HTTP 請求 API',
+        browserSupport: {
+          chrome: '42.0',
+          firefox: '39.0',
+          safari: '10.1',
+          edge: '14.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Fetch_API',
+        canIUseUrl: 'https://caniuse.com/fetch',
+        demo: () => {
+          import('../components/demos/FetchDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'xmlHttpRequest',
+        name: 'XMLHttpRequest',
+        description: '傳統的 AJAX 請求 API',
+        browserSupport: {
+          chrome: '1.0',
+          firefox: '1.0',
+          safari: '1.0',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/XMLHttpRequest',
+        canIUseUrl: 'https://caniuse.com/xmlhttprequest',
+        demo: () => {
+          import('../components/demos/XMLHttpRequestDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'beacon',
+        name: 'Beacon API',
+        description: '用於非同步、可靠地將資料傳送到伺服器',
+        browserSupport: {
+          chrome: '39.0',
+          firefox: '31.0',
+          safari: '11.1',
+          edge: '14.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Beacon_API',
+        canIUseUrl: 'https://caniuse.com/beacon',
+        demo: () => {
+          import('../components/demos/BeaconDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'eventSource',
+        name: 'Server-Sent Events (EventSource)',
+        description: '單向伺服器推播事件給瀏覽器',
+        browserSupport: {
+          chrome: '6.0',
+          firefox: '6.0',
+          safari: '5.0',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/EventSource',
+        canIUseUrl: 'https://caniuse.com/eventsource',
+        demo: () => {
+          import('../components/demos/EventSourceDemo').then(module => {
             openDemo(module.default);
           });
         }
