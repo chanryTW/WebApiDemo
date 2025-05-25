@@ -19,15 +19,15 @@ This project demonstrates the usage and practical applications of modern Web API
 ### 多媒體與串流 (Multimedia & Streaming)
 - ✅ MediaDevices API
 - ✅ Web Audio API
-- MediaRecorder API
-- HTMLMediaElement
-- MediaSource API
-- AudioContext
-- VideoTrackList
-- AudioTrackList
-- TextTrackList
-- TextTrackCue
-- Canvas Capture MediaStream API
+- ✅ MediaRecorder API
+- ✅ HTMLMediaElement
+- ✅ MediaSource API
+- ✅ AudioContext
+- ✅ VideoTrackList
+- ✅ AudioTrackList
+- ✅ TextTrackList
+- ✅ TextTrackCue
+- ✅ Canvas Capture MediaStream API
 - ✅ Picture-in-Picture API
 - ✅ Web MIDI API
 - ✅ Screen Capture API

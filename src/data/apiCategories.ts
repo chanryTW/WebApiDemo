@@ -140,6 +140,168 @@ export const apiCategories: ApiCategory[] = [
             openDemo(module.default);
           });
         }
+      },
+      {
+        id: 'mediaRecorder',
+        name: 'MediaRecorder API',
+        description: '錄製音訊與視訊媒體串流',
+        browserSupport: {
+          chrome: '49.0',
+          firefox: '25.0',
+          safari: '14.1',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/MediaRecorder',
+        canIUseUrl: 'https://caniuse.com/mediarecorder',
+        demo: () => {
+          import('../components/demos/MediaRecorderDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'htmlMediaElement',
+        name: 'HTMLMediaElement',
+        description: '控制 <audio>、<video> 元素的播放、暫停、音量等',
+        browserSupport: {
+          chrome: '4.0',
+          firefox: '3.5',
+          safari: '4.0',
+          edge: '9.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/HTMLMediaElement',
+        canIUseUrl: 'https://caniuse.com/audio-api',
+        demo: () => {
+          import('../components/demos/HTMLMediaElementDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'mediaSource',
+        name: 'MediaSource API',
+        description: '動態串流媒體資源，支援自訂緩衝區',
+        browserSupport: {
+          chrome: '23.0',
+          firefox: '42.0',
+          safari: '13.1',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/MediaSource',
+        canIUseUrl: 'https://caniuse.com/mediasource',
+        demo: () => {
+          import('../components/demos/MediaSourceDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'audioContext',
+        name: 'AudioContext',
+        description: 'Web Audio API 的核心，負責音訊處理流程',
+        browserSupport: {
+          chrome: '10.0',
+          firefox: '25.0',
+          safari: '6.0',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/AudioContext',
+        canIUseUrl: 'https://caniuse.com/audio-api',
+        demo: () => {
+          import('../components/demos/AudioContextDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'videoTrackList',
+        name: 'VideoTrackList',
+        description: '管理 <video> 元素的多軌影片串流',
+        browserSupport: {
+          chrome: '23.0',
+          firefox: '28.0',
+          safari: 'N/A',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/VideoTrackList',
+        canIUseUrl: 'https://caniuse.com/mdn-api_videotracklist',
+        demo: () => {
+          import('../components/demos/VideoTrackListDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'audioTrackList',
+        name: 'AudioTrackList',
+        description: '管理 <audio> 或 <video> 元素的多軌音訊串流',
+        browserSupport: {
+          chrome: '23.0',
+          firefox: '28.0',
+          safari: 'N/A',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/AudioTrackList',
+        canIUseUrl: 'https://caniuse.com/mdn-api_audiotracklist',
+        demo: () => {
+          import('../components/demos/AudioTrackListDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'textTrackList',
+        name: 'TextTrackList',
+        description: '管理 <video> 元素的字幕、章節等文字軌',
+        browserSupport: {
+          chrome: '23.0',
+          firefox: '28.0',
+          safari: 'N/A',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/TextTrackList',
+        canIUseUrl: 'https://caniuse.com/mdn-api_texttracklist',
+        demo: () => {
+          import('../components/demos/TextTrackListDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'textTrackCue',
+        name: 'TextTrackCue',
+        description: '代表 <track> 元素中的單一 cue（字幕、章節等）',
+        browserSupport: {
+          chrome: '23.0',
+          firefox: '28.0',
+          safari: 'N/A',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/TextTrackCue',
+        canIUseUrl: 'https://caniuse.com/mdn-api_texttrackcue',
+        demo: () => {
+          import('../components/demos/TextTrackCueDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'canvasCaptureMediaStream',
+        name: 'Canvas Capture MediaStream API',
+        description: '將 <canvas> 畫面轉為 MediaStream，可用於錄影或串流',
+        browserSupport: {
+          chrome: '53.0',
+          firefox: '41.0',
+          safari: 'N/A',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/HTMLCanvasElement/captureStream',
+        canIUseUrl: 'https://caniuse.com/mdn-api_htmlcanvaselement_capturestream',
+        demo: () => {
+          import('../components/demos/CanvasCaptureMediaStreamDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
       }
     ]
   },
