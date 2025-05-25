@@ -1206,6 +1206,103 @@ export const apiCategories: ApiCategory[] = [
         }
       }
     ]
+  },
+  {
+    id: 'sensorAndDrawing',
+    name: '感測器與繪圖',
+    description: '裝置感測器與繪圖相關 Web API',
+    apis: [
+      {
+        id: 'proximitySensor',
+        name: 'Proximity Sensor API',
+        description: '偵測裝置與物體的距離',
+        browserSupport: { chrome: 'N/A', firefox: 'N/A', safari: 'N/A', edge: 'N/A' },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Proximity_Sensor_API',
+        canIUseUrl: 'https://caniuse.com/?search=proximity',
+        demo: () => { import('../components/demos/ProximitySensorDemo').then(module => { openDemo(module.default); }); }
+      },
+      {
+        id: 'magnetometer',
+        name: 'Magnetometer API',
+        description: '偵測地磁感應數值',
+        browserSupport: { chrome: '67.0', firefox: 'N/A', safari: 'N/A', edge: '79.0' },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Magnetometer',
+        canIUseUrl: 'https://caniuse.com/?search=magnetometer',
+        demo: () => { import('../components/demos/MagnetometerDemo').then(module => { openDemo(module.default); }); }
+      },
+      {
+        id: 'accelerometer',
+        name: 'Accelerometer API',
+        description: '偵測加速度數值',
+        browserSupport: { chrome: '67.0', firefox: 'N/A', safari: 'N/A', edge: '79.0' },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Accelerometer',
+        canIUseUrl: 'https://caniuse.com/?search=accelerometer',
+        demo: () => { import('../components/demos/AccelerometerDemo').then(module => { openDemo(module.default); }); }
+      },
+      {
+        id: 'gyroscope',
+        name: 'Gyroscope API',
+        description: '偵測陀螺儀數值',
+        browserSupport: { chrome: '67.0', firefox: 'N/A', safari: 'N/A', edge: '79.0' },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Gyroscope',
+        canIUseUrl: 'https://caniuse.com/?search=gyroscope',
+        demo: () => { import('../components/demos/GyroscopeDemo').then(module => { openDemo(module.default); }); }
+      },
+      {
+        id: 'offscreenCanvas',
+        name: 'OffscreenCanvas API',
+        description: '在 worker 執行 canvas 繪圖',
+        browserSupport: { chrome: '69.0', firefox: '44.0', safari: 'N/A', edge: '79.0' },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas',
+        canIUseUrl: 'https://caniuse.com/?search=offscreenCanvas',
+        demo: () => { import('../components/demos/OffscreenCanvasDemo').then(module => { openDemo(module.default); }); }
+      },
+      {
+        id: 'imageBitmap',
+        name: 'ImageBitmap API',
+        description: '高效載入與繪製圖片',
+        browserSupport: { chrome: '50.0', firefox: '53.0', safari: 'N/A', edge: '79.0' },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap',
+        canIUseUrl: 'https://caniuse.com/?search=imagebitmap',
+        demo: () => { import('../components/demos/ImageBitmapDemo').then(module => { openDemo(module.default); }); }
+      },
+      {
+        id: 'canvas',
+        name: 'Canvas API',
+        description: '基本 2D 繪圖操作',
+        browserSupport: { chrome: '4.0', firefox: '3.6', safari: '4.0', edge: '9.0' },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API',
+        canIUseUrl: 'https://caniuse.com/?search=canvas',
+        demo: () => { import('../components/demos/CanvasDemo').then(module => { openDemo(module.default); }); }
+      },
+      {
+        id: 'svg',
+        name: 'SVG API',
+        description: 'SVG 圖形繪製與互動',
+        browserSupport: { chrome: '4.0', firefox: '3.0', safari: '3.2', edge: '9.0' },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/SVG',
+        canIUseUrl: 'https://caniuse.com/svg',
+        demo: () => { import('../components/demos/SvgDemo').then(module => { openDemo(module.default); }); }
+      },
+      {
+        id: 'webgl2',
+        name: 'WebGL2 API',
+        description: 'WebGL2 基本繪圖',
+        browserSupport: { chrome: '56.0', firefox: '51.0', safari: '15.0', edge: '79.0' },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext',
+        canIUseUrl: 'https://caniuse.com/webgl2',
+        demo: () => { import('../components/demos/WebGL2Demo').then(module => { openDemo(module.default); }); }
+      },
+      {
+        id: 'nfc',
+        name: 'NFC API',
+        description: 'NFC 標籤讀取',
+        browserSupport: { chrome: '89.0', firefox: 'N/A', safari: 'N/A', edge: 'N/A' },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Web_NFC_API',
+        canIUseUrl: 'https://caniuse.com/mdn-api_navigator_nfc',
+        demo: () => { import('../components/demos/NFCDemo').then(module => { openDemo(module.default); }); }
+      }
+    ]
   }
 ];
 
