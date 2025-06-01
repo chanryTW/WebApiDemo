@@ -5,10 +5,10 @@ export interface ApiInfo {
   name: string;
   description: string;
   browserSupport: {
-    chrome: string;
-    firefox: string;
-    safari: string;
-    edge: string;
+    chrome?: string;
+    firefox?: string;
+    safari?: string;
+    edge?: string;
   };
   mdnUrl: string;
   canIUseUrl: string;
@@ -20,6 +20,15 @@ export interface ApiCategory {
   name: string;
   description: string;
   apis: ApiInfo[];
+  browserSupport?: {
+    chrome?: string;
+    firefox?: string;
+    safari?: string;
+    edge?: string;
+  };
+  mdnUrl?: string;
+  canIUseUrl?: string;
+  demo?: () => void;
 }
 
 // 這個函數會在 App.tsx 中被設定
@@ -809,6 +818,32 @@ export const apiCategories: ApiCategory[] = [
             openDemo(module.default);
           });
         }
+      },
+      {
+        id: 'webtransport',
+        name: 'WebTransport API',
+        description: '基於 HTTP/3 的雙向通訊協議，支援可靠和不可靠的資料傳輸。',
+        browserSupport: {
+          chrome: '97.0',
+          edge: '97.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/WebTransport',
+        canIUseUrl: 'https://caniuse.com/webtransport',
+        demo: () => import('../components/demos/WebTransportDemo')
+      },
+      {
+        id: 'webpush',
+        name: 'Web Push API',
+        description: '允許網頁應用程式接收推送通知，即使用戶未開啟網頁也能收到通知。',
+        browserSupport: {
+          chrome: 'yes',
+          firefox: 'yes',
+          safari: 'no',
+          edge: 'yes'
+        },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Push_API',
+        canIUseUrl: 'https://caniuse.com/push-api',
+        demo: () => import('../components/demos/WebPushDemo')
       }
     ]
   },
@@ -1057,6 +1092,31 @@ export const apiCategories: ApiCategory[] = [
             openDemo(module.default);
           });
         }
+      },
+      {
+        id: 'css-typed-om',
+        name: 'CSS Typed OM API',
+        description: '提供強型別的 CSS 值操作介面，可以更有效地讀取和修改元素樣式。',
+        browserSupport: {
+          chrome: '66.0',
+          firefox: '118.0',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/CSS_Typed_OM_API',
+        canIUseUrl: 'https://caniuse.com/css-typed-om',
+        demo: () => import('../components/demos/CSSTypedOMDemo')
+      },
+      {
+        id: 'image-capture',
+        name: 'ImageCapture API',
+        description: '提供對相機硬體的進階控制，包括拍照和調整相機設定。',
+        browserSupport: {
+          chrome: '59.0',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/ImageCapture',
+        canIUseUrl: 'https://caniuse.com/imagecapture',
+        demo: () => import('../components/demos/ImageCaptureDemo')
       }
     ]
   },
@@ -1413,6 +1473,18 @@ export const apiCategories: ApiCategory[] = [
             openDemo(module.default);
           });
         }
+      },
+      {
+        id: 'presentation',
+        name: 'Presentation API',
+        description: '允許網頁內容在第二顯示器上進行簡報展示。',
+        browserSupport: {
+          chrome: '48.0',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Presentation_API',
+        canIUseUrl: 'https://caniuse.com/presentation',
+        demo: () => import('../components/demos/PresentationDemo')
       }
     ]
   },
