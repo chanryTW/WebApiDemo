@@ -1383,6 +1383,42 @@ export const apiCategories: ApiCategory[] = [
     description: '與系統功能整合',
     apis: [
       {
+        id: 'badging',
+        name: 'Badging API',
+        description: '允許網頁應用程式在其圖示上顯示標記，通常用於顯示未讀訊息數量或通知數量。',
+        browserSupport: {
+          chrome: '81.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: '81.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Badging_API',
+        canIUseUrl: 'https://caniuse.com/mdn-api_navigator_setappbadge',
+        demo: () => {
+          import('../components/demos/BadgingDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'fileHandling',
+        name: 'File Handling API',
+        description: '允許網頁應用程式註冊為特定檔案類型的處理程式，使用者可以直接用網頁應用程式開啟這些檔案。',
+        browserSupport: {
+          chrome: '102.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: '102.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Window/launchQueue',
+        canIUseUrl: 'https://caniuse.com/mdn-api_window_launchqueue',
+        demo: () => {
+          import('../components/demos/FileHandlingDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
         id: 'screenOrientation',
         name: 'Screen Orientation API',
         description: '監測和控制螢幕方向，支援鎖定特定方向和監聽方向變化事件',

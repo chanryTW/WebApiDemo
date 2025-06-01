@@ -96,8 +96,8 @@ This project demonstrates the usage and practical applications of modern Web API
 - ✅ [SVG API](https://developer.mozilla.org/zh-TW/docs/Web/API/SVGElement)
 - ✅ [OffscreenCanvas API](https://developer.mozilla.org/zh-TW/docs/Web/API/OffscreenCanvas)
 - ✅ [ImageBitmap API](https://developer.mozilla.org/zh-TW/docs/Web/API/ImageBitmap)
-- [ImageCapture API](https://developer.mozilla.org/en-US/docs/Web/API/ImageCapture) ✅
-- [CSS Typed OM API](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Typed_OM_API) ✅
+- ✅ [ImageCapture API](https://developer.mozilla.org/en-US/docs/Web/API/ImageCapture)
+- ✅ [CSS Typed OM API](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Typed_OM_API)
 
 ### 互動與觀察 (Interaction & Observation)
 - ✅ [Gamepad API](https://developer.mozilla.org/zh-TW/docs/Web/API/Gamepad_API)
@@ -120,11 +120,11 @@ This project demonstrates the usage and practical applications of modern Web API
 - ✅ [Screen Orientation API](https://developer.mozilla.org/zh-TW/docs/Web/API/Screen_Orientation_API)
 - ✅ [Wake Lock API](https://developer.mozilla.org/zh-TW/docs/Web/API/WakeLock)
 - ✅ [Web Locks API](https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Locks_API)
-- [Presentation API](https://developer.mozilla.org/en-US/docs/Web/API/Presentation_API) ✅
+- ✅ [Presentation API](https://developer.mozilla.org/en-US/docs/Web/API/Presentation_API)
 - ✅ [Payment Request API](https://developer.mozilla.org/zh-TW/docs/Web/API/Payment_Request_API)
 - ✅ [Credential Management API](https://developer.mozilla.org/zh-TW/docs/Web/API/Credential_Management_API)
-- [Badging API](https://developer.mozilla.org/zh-TW/docs/Web/API/Badging_API)
-- [File Handling API](https://developer.mozilla.org/zh-TW/docs/Web/API/File_System_Access_API)
+- ✅ [Badging API](https://developer.mozilla.org/zh-TW/docs/Web/API/Badging_API)
+- ✅ [File Handling API](https://developer.mozilla.org/zh-TW/docs/Web/API/File_System_Access_API)
 
 ### 安全與支付 (Security & Payment)
 - ✅ [Web Crypto API](https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Crypto_API)
