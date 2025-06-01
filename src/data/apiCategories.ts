@@ -818,489 +818,651 @@ export const apiCategories: ApiCategory[] = [
     description: '優化應用效能和背景任務處理',
     apis: [
       {
-        id: 'webWorkers',
-        name: 'Web Workers API',
-        description: '在背景執行複雜的計算任務，避免阻塞主執行緒，提升應用程式效能',
+        id: 'navigationTiming',
+        name: 'Navigation Timing API',
+        description: '測量網頁導航和載入時間的詳細資訊',
         browserSupport: {
-          chrome: '4.0',
-          firefox: '3.5',
-          safari: '4.0',
+          chrome: '6.0',
+          firefox: '7.0',
+          safari: '8.0',
           edge: '12.0'
         },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Workers_API',
-        canIUseUrl: 'https://caniuse.com/webworkers',
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Navigation_timing_API',
+        canIUseUrl: 'https://caniuse.com/nav-timing',
         demo: () => {
-          import('../components/demos/WebWorkersDemo').then(module => {
+          import('../components/demos/NavigationTimingDemo').then(module => {
             openDemo(module.default);
           });
         }
       },
       {
-        id: 'backgroundTasks',
-        name: 'Background Tasks API',
-        description: '使用 requestIdleCallback 在瀏覽器空閒時執行低優先級任務，提升應用效能',
+        id: 'resourceTiming',
+        name: 'Resource Timing API',
+        description: '測量網頁資源（圖片、腳本、樣式表等）的載入時間和大小',
         browserSupport: {
-          chrome: '47.0',
-          firefox: '55.0',
-          safari: '15.4',
-          edge: '79.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Background_Tasks_API',
-        canIUseUrl: 'https://caniuse.com/requestidlecallback',
-        demo: () => {
-          import('../components/demos/BackgroundTasksDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
-      }
-    ]
-  },
-  {
-    id: 'graphics',
-    name: '圖形與動畫',
-    description: '處理圖形渲染和動畫效果',
-    apis: [
-      {
-        id: 'webgl',
-        name: 'WebGL API',
-        description: '基於 OpenGL ES 的 3D 圖形渲染 API',
-        browserSupport: {
-          chrome: '9.0',
-          firefox: '4.0',
-          safari: '5.1',
+          chrome: '25.0',
+          firefox: '31.0',
+          safari: '11.0',
           edge: '12.0'
         },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/WebGL_API',
-        canIUseUrl: 'https://caniuse.com/webgl',
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Resource_Timing_API',
+        canIUseUrl: 'https://caniuse.com/resource-timing',
         demo: () => {
-          import('../components/demos/WebGLDemo').then(module => {
+          import('../components/demos/ResourceTimingDemo').then(module => {
             openDemo(module.default);
           });
         }
       },
       {
-        id: 'webAnimations',
-        name: 'Web Animations API',
-        description: '提供強大的 JavaScript 動畫控制功能，可以精確控制動畫的播放、暫停和時間軸',
+        id: 'userTiming',
+        name: 'User Timing API',
+        description: '提供自定義性能標記和測量功能，用於追蹤特定操作的執行時間',
         browserSupport: {
-          chrome: '36.0',
-          firefox: '48.0',
-          safari: '13.1',
-          edge: '79.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Animations_API',
-        canIUseUrl: 'https://caniuse.com/web-animation',
-        demo: () => {
-          import('../components/demos/WebAnimationsDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
-      },
-      {
-        id: 'webGpu',
-        name: 'WebGPU API',
-        description: '新一代高效能圖形與運算 API，適合 3D 遊戲與科學運算',
-        browserSupport: {
-          chrome: '113.0',
-          firefox: 'N/A',
-          safari: 'N/A',
-          edge: '113.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/WebGPU_API',
-        canIUseUrl: 'https://caniuse.com/webgpu',
-        demo: () => {
-          import('../components/demos/WebGPUDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
-      }
-    ]
-  },
-  {
-    id: 'interaction',
-    name: '互動與觀察',
-    description: '處理用戶互動和元素觀察',
-    apis: [
-      {
-        id: 'gamepad',
-        name: 'Gamepad API',
-        description: '支援連接遊戲手把裝置，讀取按鈕狀態和軸的數值，適合開發網頁遊戲',
-        browserSupport: {
-          chrome: '21.0',
-          firefox: '29.0',
-          safari: '10.1',
+          chrome: '25.0',
+          firefox: '31.0',
+          safari: '11.0',
           edge: '12.0'
         },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Gamepad_API',
-        canIUseUrl: 'https://caniuse.com/gamepad',
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/User_Timing_API',
+        canIUseUrl: 'https://caniuse.com/user-timing',
         demo: () => {
-          import('../components/demos/GamepadDemo').then(module => {
+          import('../components/demos/UserTimingDemo').then(module => {
             openDemo(module.default);
           });
         }
       },
       {
-        id: 'pointerEvents',
-        name: 'Pointer Events API',
-        description: '統一處理滑鼠、觸控和手寫筆等各種指針輸入，提供更好的跨裝置互動體驗',
+        id: 'paintTiming',
+        name: 'Paint Timing API',
+        description: '提供網頁渲染過程中的關鍵時間點資訊，如首次繪製和首次內容繪製',
         browserSupport: {
-          chrome: '55.0',
-          firefox: '59.0',
-          safari: '13.0',
-          edge: '12.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Pointer_events',
-        canIUseUrl: 'https://caniuse.com/pointer',
-        demo: () => {
-          import('../components/demos/PointerEventsDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
-      },
-      {
-        id: 'intersectionObserver',
-        name: 'Intersection Observer API',
-        description: '監測元素進入或離開視窗可見範圍，常用於實現無限捲動、延遲載入等功能',
-        browserSupport: {
-          chrome: '51.0',
-          firefox: '55.0',
-          safari: '12.2',
-          edge: '15.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Intersection_Observer_API',
-        canIUseUrl: 'https://caniuse.com/intersectionobserver',
-        demo: () => {
-          import('../components/demos/IntersectionObserverDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
-      },
-      {
-        id: 'resizeObserver',
-        name: 'Resize Observer API',
-        description: '監測元素大小變化，可用於響應式設計、動態布局調整等場景',
-        browserSupport: {
-          chrome: '64.0',
-          firefox: '69.0',
-          safari: '13.1',
-          edge: '79.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Resize_Observer_API',
-        canIUseUrl: 'https://caniuse.com/resizeobserver',
-        demo: () => {
-          import('../components/demos/ResizeObserverDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
-      },
-      {
-        id: 'pageVisibility',
-        name: 'Page Visibility API',
-        description: '檢測網頁是否可見，可用於暫停視訊播放、停止動畫等功能',
-        browserSupport: {
-          chrome: '33.0',
-          firefox: '18.0',
-          safari: '7.0',
-          edge: '12.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Page_Visibility_API',
-        canIUseUrl: 'https://caniuse.com/pagevisibility',
-        demo: () => {
-          import('../components/demos/PageVisibilityDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
-      },
-      {
-        id: 'webSpeech',
-        name: 'Web Speech API',
-        description: '提供語音識別和語音合成功能，支援多種語言',
-        browserSupport: {
-          chrome: '33.0',
-          firefox: '44.0',
-          safari: '7.0',
-          edge: '14.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Speech_API',
-        canIUseUrl: 'https://caniuse.com/speech-synthesis',
-        demo: () => {
-          import('../components/demos/WebSpeechDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
-      },
-      {
-        id: 'eyeDropper',
-        name: 'EyeDropper API',
-        description: '讓使用者從畫面上取色，適合設計工具',
-        browserSupport: {
-          chrome: '95.0',
-          firefox: 'N/A',
-          safari: 'N/A',
-          edge: '95.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/EyeDropper_API',
-        canIUseUrl: 'https://caniuse.com/mdn-api_eyedropper',
-        demo: () => {
-          import('../components/demos/EyeDropperDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
-      }
-    ]
-  },
-  {
-    id: 'systemIntegration',
-    name: '系統整合',
-    description: '與系統功能整合',
-    apis: [
-      {
-        id: 'clipboard',
-        name: 'Clipboard API',
-        description: '提供對系統剪貼簿的讀寫功能，可以複製和貼上文字、圖片等內容',
-        browserSupport: {
-          chrome: '66.0',
+          chrome: '60.0',
           firefox: '63.0',
-          safari: '13.1',
+          safari: '14.0',
           edge: '79.0'
         },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Clipboard_API',
-        canIUseUrl: 'https://caniuse.com/async-clipboard',
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Paint_Timing_API',
+        canIUseUrl: 'https://caniuse.com/paint-timing',
         demo: () => {
-          import('../components/demos/ClipboardDemo').then(module => {
+          import('../components/demos/PaintTimingDemo').then(module => {
             openDemo(module.default);
           });
         }
       },
       {
-        id: 'fullscreen',
-        name: 'Fullscreen API',
-        description: '允許將網頁元素全螢幕顯示，適用於影片播放、遊戲等場景',
+        id: 'longTasks',
+        name: 'Long Tasks API',
+        description: '識別可能阻塞主線程超過 50 毫秒的長時間執行任務',
         browserSupport: {
-          chrome: '15.0',
-          firefox: '9.0',
-          safari: '5.1',
+          chrome: '58.0',
+          firefox: '58.0',
+          safari: '15.0',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Long_Tasks_API',
+        canIUseUrl: 'https://caniuse.com/longtasks',
+        demo: () => {
+          import('../components/demos/LongTasksDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'idleDetection',
+        name: 'Idle Detection API',
+        description: '檢測使用者是否處於閒置狀態，可用於實作節能模式、自動登出等功能',
+        browserSupport: {
+          chrome: '94.0',
+          firefox: 'N/A',
+          safari: 'N/A',
+          edge: '94.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Idle_Detection_API',
+        canIUseUrl: 'https://caniuse.com/idle-detection',
+        demo: () => {
+          import('../components/demos/IdleDetectionDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'performance',
+        name: 'Performance API',
+        description: '測量網頁效能，包括載入時間、資源使用等',
+        browserSupport: {
+          chrome: '6.0',
+          firefox: '7.0',
+          safari: '8.0',
           edge: '12.0'
         },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Fullscreen_API',
-        canIUseUrl: 'https://caniuse.com/fullscreen',
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Performance_API',
+        canIUseUrl: 'https://caniuse.com/mdn-api_performance',
         demo: () => {
-          import('../components/demos/FullscreenDemo').then(module => {
+          import('../components/demos/PerformanceDemo').then(module => {
             openDemo(module.default);
           });
         }
       },
       {
-        id: 'notifications',
-        name: 'Web Notifications API',
-        description: '發送系統級的通知訊息，即使用戶切換到其他應用程式也能收到提醒',
-        browserSupport: {
-          chrome: '22.0',
-          firefox: '22.0',
-          safari: '6.0',
-          edge: '14.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Notifications_API',
-        canIUseUrl: 'https://caniuse.com/notifications',
-        demo: () => {
-          import('../components/demos/NotificationsDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
+        id: 'graphics',
+        name: '圖形與動畫',
+        description: '處理圖形渲染和動畫效果',
+        apis: [
+          {
+            id: 'webgl',
+            name: 'WebGL API',
+            description: '基於 OpenGL ES 的 3D 圖形渲染 API',
+            browserSupport: {
+              chrome: '9.0',
+              firefox: '4.0',
+              safari: '5.1',
+              edge: '12.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/WebGL_API',
+            canIUseUrl: 'https://caniuse.com/webgl',
+            demo: () => {
+              import('../components/demos/WebGLDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'webAnimations',
+            name: 'Web Animations API',
+            description: '提供強大的 JavaScript 動畫控制功能，可以精確控制動畫的播放、暫停和時間軸',
+            browserSupport: {
+              chrome: '36.0',
+              firefox: '48.0',
+              safari: '13.1',
+              edge: '79.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Animations_API',
+            canIUseUrl: 'https://caniuse.com/web-animation',
+            demo: () => {
+              import('../components/demos/WebAnimationsDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'webGpu',
+            name: 'WebGPU API',
+            description: '新一代高效能圖形與運算 API，適合 3D 遊戲與科學運算',
+            browserSupport: {
+              chrome: '113.0',
+              firefox: 'N/A',
+              safari: 'N/A',
+              edge: '113.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/WebGPU_API',
+            canIUseUrl: 'https://caniuse.com/webgpu',
+            demo: () => {
+              import('../components/demos/WebGPUDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          }
+        ]
       },
       {
-        id: 'networkInfo',
-        name: 'Network Information API',
-        description: '提供網路連線狀態的資訊，包括連線類型、速度等',
-        browserSupport: {
-          chrome: '61.0',
-          firefox: 'N/A',
-          safari: 'N/A',
-          edge: '79.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Network_Information_API',
-        canIUseUrl: 'https://caniuse.com/netinfo',
-        demo: () => {
-          import('../components/demos/NetworkInfoDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
+        id: 'interaction',
+        name: '互動與觀察',
+        description: '處理用戶互動和元素觀察',
+        apis: [
+          {
+            id: 'gamepad',
+            name: 'Gamepad API',
+            description: '支援連接遊戲手把裝置，讀取按鈕狀態和軸的數值，適合開發網頁遊戲',
+            browserSupport: {
+              chrome: '21.0',
+              firefox: '29.0',
+              safari: '10.1',
+              edge: '12.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Gamepad_API',
+            canIUseUrl: 'https://caniuse.com/gamepad',
+            demo: () => {
+              import('../components/demos/GamepadDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'touchEvents',
+            name: 'Touch Events API',
+            description: '處理觸控裝置的觸控事件，支援多點觸控',
+            browserSupport: {
+              chrome: '22.0',
+              firefox: '18.0',
+              safari: '3.2',
+              edge: '12.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Touch_events',
+            canIUseUrl: 'https://caniuse.com/touch',
+            demo: () => {
+              import('../components/demos/TouchEventsDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'pointerEvents',
+            name: 'Pointer Events API',
+            description: '統一處理滑鼠、觸控和手寫筆等各種指針輸入，提供更好的跨裝置互動體驗',
+            browserSupport: {
+              chrome: '55.0',
+              firefox: '59.0',
+              safari: '13.0',
+              edge: '12.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Pointer_events',
+            canIUseUrl: 'https://caniuse.com/pointer',
+            demo: () => {
+              import('../components/demos/PointerEventsDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'intersectionObserver',
+            name: 'Intersection Observer API',
+            description: '監測元素進入或離開視窗可見範圍，常用於實現無限捲動、延遲載入等功能',
+            browserSupport: {
+              chrome: '51.0',
+              firefox: '55.0',
+              safari: '12.2',
+              edge: '15.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Intersection_Observer_API',
+            canIUseUrl: 'https://caniuse.com/intersectionobserver',
+            demo: () => {
+              import('../components/demos/IntersectionObserverDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'resizeObserver',
+            name: 'Resize Observer API',
+            description: '監測元素大小變化，可用於響應式設計、動態布局調整等場景',
+            browserSupport: {
+              chrome: '64.0',
+              firefox: '69.0',
+              safari: '13.1',
+              edge: '79.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Resize_Observer_API',
+            canIUseUrl: 'https://caniuse.com/resizeobserver',
+            demo: () => {
+              import('../components/demos/ResizeObserverDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'pageVisibility',
+            name: 'Page Visibility API',
+            description: '檢測網頁是否可見，可用於暫停視訊播放、停止動畫等功能',
+            browserSupport: {
+              chrome: '33.0',
+              firefox: '18.0',
+              safari: '7.0',
+              edge: '12.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Page_Visibility_API',
+            canIUseUrl: 'https://caniuse.com/pagevisibility',
+            demo: () => {
+              import('../components/demos/PageVisibilityDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'webSpeech',
+            name: 'Web Speech API',
+            description: '提供語音識別和語音合成功能，支援多種語言',
+            browserSupport: {
+              chrome: '33.0',
+              firefox: '44.0',
+              safari: '7.0',
+              edge: '14.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Speech_API',
+            canIUseUrl: 'https://caniuse.com/speech-synthesis',
+            demo: () => {
+              import('../components/demos/WebSpeechDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'eyeDropper',
+            name: 'EyeDropper API',
+            description: '讓使用者從畫面上取色，適合設計工具',
+            browserSupport: {
+              chrome: '95.0',
+              firefox: 'N/A',
+              safari: 'N/A',
+              edge: '95.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/EyeDropper_API',
+            canIUseUrl: 'https://caniuse.com/mdn-api_eyedropper',
+            demo: () => {
+              import('../components/demos/EyeDropperDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'mouseEvents',
+            name: 'Mouse Events API',
+            description: '處理滑鼠事件，包括點擊、移動、滾輪等',
+            browserSupport: {
+              chrome: '1.0',
+              firefox: '1.0',
+              safari: '1.0',
+              edge: '12.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/MouseEvent',
+            canIUseUrl: 'https://caniuse.com/mdn-api_mouseevent',
+            demo: () => {
+              import('../components/demos/MouseEventsDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'keyboardEvents',
+            name: 'Keyboard Events API',
+            description: '處理鍵盤事件，包括按鍵按下、放開等',
+            browserSupport: {
+              chrome: '1.0',
+              firefox: '1.0',
+              safari: '1.0',
+              edge: '12.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/KeyboardEvent',
+            canIUseUrl: 'https://caniuse.com/mdn-api_keyboardevent',
+            demo: () => {
+              import('../components/demos/KeyboardEventsDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'wheelEvents',
+            name: 'Wheel Events API',
+            description: '處理滑鼠滾輪事件，支援水平和垂直滾動',
+            browserSupport: {
+              chrome: '31.0',
+              firefox: '17.0',
+              safari: '7.0',
+              edge: '12.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/WheelEvent',
+            canIUseUrl: 'https://caniuse.com/mdn-api_wheelevent',
+            demo: () => {
+              import('../components/demos/WheelEventsDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          }
+        ]
       },
       {
-        id: 'webLocks',
-        name: 'Web Locks API',
-        description: '提供資源鎖定機制，防止多個標籤頁或工作者同時訪問相同資源',
-        browserSupport: {
-          chrome: '69.0',
-          firefox: '69.0',
-          safari: 'N/A',
-          edge: '79.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Locks_API',
-        canIUseUrl: 'https://caniuse.com/web-locks',
-        demo: () => {
-          import('../components/demos/WebLocksDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
-      }
-    ]
-  },
-  {
-    id: 'security',
-    name: '安全與支付',
-    description: '處理安全性和支付相關功能',
-    apis: [
-      {
-        id: 'webCrypto',
-        name: 'Web Crypto API',
-        description: '提供加密和解密功能，支援多種加密演算法，適合處理敏感資料',
-        browserSupport: {
-          chrome: '37.0',
-          firefox: '34.0',
-          safari: '7.0',
-          edge: '12.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Crypto_API',
-        canIUseUrl: 'https://caniuse.com/cryptography',
-        demo: () => {
-          import('../components/demos/WebCryptoDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
+        id: 'systemIntegration',
+        name: '系統整合',
+        description: '與系統功能整合',
+        apis: [
+          {
+            id: 'clipboard',
+            name: 'Clipboard API',
+            description: '提供對系統剪貼簿的讀寫功能，可以複製和貼上文字、圖片等內容',
+            browserSupport: {
+              chrome: '66.0',
+              firefox: '63.0',
+              safari: '13.1',
+              edge: '79.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Clipboard_API',
+            canIUseUrl: 'https://caniuse.com/async-clipboard',
+            demo: () => {
+              import('../components/demos/ClipboardDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'fullscreen',
+            name: 'Fullscreen API',
+            description: '允許將網頁元素全螢幕顯示，適用於影片播放、遊戲等場景',
+            browserSupport: {
+              chrome: '15.0',
+              firefox: '9.0',
+              safari: '5.1',
+              edge: '12.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Fullscreen_API',
+            canIUseUrl: 'https://caniuse.com/fullscreen',
+            demo: () => {
+              import('../components/demos/FullscreenDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'notifications',
+            name: 'Web Notifications API',
+            description: '發送系統級的通知訊息，即使用戶切換到其他應用程式也能收到提醒',
+            browserSupport: {
+              chrome: '22.0',
+              firefox: '22.0',
+              safari: '6.0',
+              edge: '14.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Notifications_API',
+            canIUseUrl: 'https://caniuse.com/notifications',
+            demo: () => {
+              import('../components/demos/NotificationsDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'networkInfo',
+            name: 'Network Information API',
+            description: '提供網路連線狀態的資訊，包括連線類型、速度等',
+            browserSupport: {
+              chrome: '61.0',
+              firefox: 'N/A',
+              safari: 'N/A',
+              edge: '79.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Network_Information_API',
+            canIUseUrl: 'https://caniuse.com/netinfo',
+            demo: () => {
+              import('../components/demos/NetworkInfoDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'webLocks',
+            name: 'Web Locks API',
+            description: '提供資源鎖定機制，防止多個標籤頁或工作者同時訪問相同資源',
+            browserSupport: {
+              chrome: '69.0',
+              firefox: '69.0',
+              safari: 'N/A',
+              edge: '79.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Locks_API',
+            canIUseUrl: 'https://caniuse.com/web-locks',
+            demo: () => {
+              import('../components/demos/WebLocksDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          }
+        ]
       },
       {
-        id: 'paymentRequest',
-        name: 'Payment Request API',
-        description: '提供標準化的支付介面，簡化網上支付流程',
-        browserSupport: {
-          chrome: '61.0',
-          firefox: 'N/A',
-          safari: '11.1',
-          edge: '15.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Payment_Request_API',
-        canIUseUrl: 'https://caniuse.com/payment-request',
-        demo: () => {
-          import('../components/demos/PaymentRequestDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
+        id: 'security',
+        name: '安全與支付',
+        description: '處理安全性和支付相關功能',
+        apis: [
+          {
+            id: 'webCrypto',
+            name: 'Web Crypto API',
+            description: '提供加密和解密功能，支援多種加密演算法，適合處理敏感資料',
+            browserSupport: {
+              chrome: '37.0',
+              firefox: '34.0',
+              safari: '7.0',
+              edge: '12.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Crypto_API',
+            canIUseUrl: 'https://caniuse.com/cryptography',
+            demo: () => {
+              import('../components/demos/WebCryptoDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'paymentRequest',
+            name: 'Payment Request API',
+            description: '提供標準化的支付介面，簡化網上支付流程',
+            browserSupport: {
+              chrome: '61.0',
+              firefox: 'N/A',
+              safari: '11.1',
+              edge: '15.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Payment_Request_API',
+            canIUseUrl: 'https://caniuse.com/payment-request',
+            demo: () => {
+              import('../components/demos/PaymentRequestDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          },
+          {
+            id: 'credentialManagement',
+            name: 'Credential Management API',
+            description: '管理和存儲用戶憑證，簡化登入流程',
+            browserSupport: {
+              chrome: '51.0',
+              firefox: 'N/A',
+              safari: 'N/A',
+              edge: '79.0'
+            },
+            mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Credential_Management_API',
+            canIUseUrl: 'https://caniuse.com/credential-management',
+            demo: () => {
+              import('../components/demos/CredentialManagementDemo').then(module => {
+                openDemo(module.default);
+              });
+            }
+          }
+        ]
       },
       {
-        id: 'credentialManagement',
-        name: 'Credential Management API',
-        description: '管理和存儲用戶憑證，簡化登入流程',
-        browserSupport: {
-          chrome: '51.0',
-          firefox: 'N/A',
-          safari: 'N/A',
-          edge: '79.0'
-        },
-        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Credential_Management_API',
-        canIUseUrl: 'https://caniuse.com/credential-management',
-        demo: () => {
-          import('../components/demos/CredentialManagementDemo').then(module => {
-            openDemo(module.default);
-          });
-        }
-      }
-    ]
-  },
-  {
-    id: 'sensorAndDrawing',
-    name: '感測器與繪圖',
-    description: '裝置感測器與繪圖相關 Web API',
-    apis: [
-      {
-        id: 'proximitySensor',
-        name: 'Proximity Sensor API',
-        description: '偵測裝置與物體的距離',
-        browserSupport: { chrome: 'N/A', firefox: 'N/A', safari: 'N/A', edge: 'N/A' },
-        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Proximity_Sensor_API',
-        canIUseUrl: 'https://caniuse.com/?search=proximity',
-        demo: () => { import('../components/demos/ProximitySensorDemo').then(module => { openDemo(module.default); }); }
-      },
-      {
-        id: 'magnetometer',
-        name: 'Magnetometer API',
-        description: '偵測地磁感應數值',
-        browserSupport: { chrome: '67.0', firefox: 'N/A', safari: 'N/A', edge: '79.0' },
-        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Magnetometer',
-        canIUseUrl: 'https://caniuse.com/?search=magnetometer',
-        demo: () => { import('../components/demos/MagnetometerDemo').then(module => { openDemo(module.default); }); }
-      },
-      {
-        id: 'accelerometer',
-        name: 'Accelerometer API',
-        description: '偵測加速度數值',
-        browserSupport: { chrome: '67.0', firefox: 'N/A', safari: 'N/A', edge: '79.0' },
-        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Accelerometer',
-        canIUseUrl: 'https://caniuse.com/?search=accelerometer',
-        demo: () => { import('../components/demos/AccelerometerDemo').then(module => { openDemo(module.default); }); }
-      },
-      {
-        id: 'gyroscope',
-        name: 'Gyroscope API',
-        description: '偵測陀螺儀數值',
-        browserSupport: { chrome: '67.0', firefox: 'N/A', safari: 'N/A', edge: '79.0' },
-        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Gyroscope',
-        canIUseUrl: 'https://caniuse.com/?search=gyroscope',
-        demo: () => { import('../components/demos/GyroscopeDemo').then(module => { openDemo(module.default); }); }
-      },
-      {
-        id: 'offscreenCanvas',
-        name: 'OffscreenCanvas API',
-        description: '在 worker 執行 canvas 繪圖',
-        browserSupport: { chrome: '69.0', firefox: '44.0', safari: 'N/A', edge: '79.0' },
-        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas',
-        canIUseUrl: 'https://caniuse.com/?search=offscreenCanvas',
-        demo: () => { import('../components/demos/OffscreenCanvasDemo').then(module => { openDemo(module.default); }); }
-      },
-      {
-        id: 'imageBitmap',
-        name: 'ImageBitmap API',
-        description: '高效載入與繪製圖片',
-        browserSupport: { chrome: '50.0', firefox: '53.0', safari: 'N/A', edge: '79.0' },
-        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap',
-        canIUseUrl: 'https://caniuse.com/?search=imagebitmap',
-        demo: () => { import('../components/demos/ImageBitmapDemo').then(module => { openDemo(module.default); }); }
-      },
-      {
-        id: 'canvas',
-        name: 'Canvas API',
-        description: '基本 2D 繪圖操作',
-        browserSupport: { chrome: '4.0', firefox: '3.6', safari: '4.0', edge: '9.0' },
-        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API',
-        canIUseUrl: 'https://caniuse.com/?search=canvas',
-        demo: () => { import('../components/demos/CanvasDemo').then(module => { openDemo(module.default); }); }
-      },
-      {
-        id: 'svg',
-        name: 'SVG API',
-        description: 'SVG 圖形繪製與互動',
-        browserSupport: { chrome: '4.0', firefox: '3.0', safari: '3.2', edge: '9.0' },
-        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/SVG',
-        canIUseUrl: 'https://caniuse.com/svg',
-        demo: () => { import('../components/demos/SvgDemo').then(module => { openDemo(module.default); }); }
-      },
-      {
-        id: 'webgl2',
-        name: 'WebGL2 API',
-        description: 'WebGL2 基本繪圖',
-        browserSupport: { chrome: '56.0', firefox: '51.0', safari: '15.0', edge: '79.0' },
-        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext',
-        canIUseUrl: 'https://caniuse.com/webgl2',
-        demo: () => { import('../components/demos/WebGL2Demo').then(module => { openDemo(module.default); }); }
-      },
-      {
-        id: 'nfc',
-        name: 'NFC API',
-        description: 'NFC 標籤讀取',
-        browserSupport: { chrome: '89.0', firefox: 'N/A', safari: 'N/A', edge: 'N/A' },
-        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Web_NFC_API',
-        canIUseUrl: 'https://caniuse.com/mdn-api_navigator_nfc',
-        demo: () => { import('../components/demos/NFCDemo').then(module => { openDemo(module.default); }); }
+        id: 'sensorAndDrawing',
+        name: '感測器與繪圖',
+        description: '裝置感測器與繪圖相關 Web API',
+        apis: [
+          {
+            id: 'proximitySensor',
+            name: 'Proximity Sensor API',
+            description: '偵測裝置與物體的距離',
+            browserSupport: { chrome: 'N/A', firefox: 'N/A', safari: 'N/A', edge: 'N/A' },
+            mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Proximity_Sensor_API',
+            canIUseUrl: 'https://caniuse.com/?search=proximity',
+            demo: () => { import('../components/demos/ProximitySensorDemo').then(module => { openDemo(module.default); }); }
+          },
+          {
+            id: 'magnetometer',
+            name: 'Magnetometer API',
+            description: '偵測地磁感應數值',
+            browserSupport: { chrome: '67.0', firefox: 'N/A', safari: 'N/A', edge: '79.0' },
+            mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Magnetometer',
+            canIUseUrl: 'https://caniuse.com/?search=magnetometer',
+            demo: () => { import('../components/demos/MagnetometerDemo').then(module => { openDemo(module.default); }); }
+          },
+          {
+            id: 'accelerometer',
+            name: 'Accelerometer API',
+            description: '偵測加速度數值',
+            browserSupport: { chrome: '67.0', firefox: 'N/A', safari: 'N/A', edge: '79.0' },
+            mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Accelerometer',
+            canIUseUrl: 'https://caniuse.com/?search=accelerometer',
+            demo: () => { import('../components/demos/AccelerometerDemo').then(module => { openDemo(module.default); }); }
+          },
+          {
+            id: 'gyroscope',
+            name: 'Gyroscope API',
+            description: '偵測陀螺儀數值',
+            browserSupport: { chrome: '67.0', firefox: 'N/A', safari: 'N/A', edge: '79.0' },
+            mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Gyroscope',
+            canIUseUrl: 'https://caniuse.com/?search=gyroscope',
+            demo: () => { import('../components/demos/GyroscopeDemo').then(module => { openDemo(module.default); }); }
+          },
+          {
+            id: 'offscreenCanvas',
+            name: 'OffscreenCanvas API',
+            description: '在 worker 執行 canvas 繪圖',
+            browserSupport: { chrome: '69.0', firefox: '44.0', safari: 'N/A', edge: '79.0' },
+            mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas',
+            canIUseUrl: 'https://caniuse.com/?search=offscreenCanvas',
+            demo: () => { import('../components/demos/OffscreenCanvasDemo').then(module => { openDemo(module.default); }); }
+          },
+          {
+            id: 'imageBitmap',
+            name: 'ImageBitmap API',
+            description: '高效載入與繪製圖片',
+            browserSupport: { chrome: '50.0', firefox: '53.0', safari: 'N/A', edge: '79.0' },
+            mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap',
+            canIUseUrl: 'https://caniuse.com/?search=imagebitmap',
+            demo: () => { import('../components/demos/ImageBitmapDemo').then(module => { openDemo(module.default); }); }
+          },
+          {
+            id: 'canvas',
+            name: 'Canvas API',
+            description: '基本 2D 繪圖操作',
+            browserSupport: { chrome: '4.0', firefox: '3.6', safari: '4.0', edge: '9.0' },
+            mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API',
+            canIUseUrl: 'https://caniuse.com/?search=canvas',
+            demo: () => { import('../components/demos/CanvasDemo').then(module => { openDemo(module.default); }); }
+          },
+          {
+            id: 'svg',
+            name: 'SVG API',
+            description: 'SVG 圖形繪製與互動',
+            browserSupport: { chrome: '4.0', firefox: '3.0', safari: '3.2', edge: '9.0' },
+            mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/SVG',
+            canIUseUrl: 'https://caniuse.com/svg',
+            demo: () => { import('../components/demos/SvgDemo').then(module => { openDemo(module.default); }); }
+          },
+          {
+            id: 'webgl2',
+            name: 'WebGL2 API',
+            description: 'WebGL2 基本繪圖',
+            browserSupport: { chrome: '56.0', firefox: '51.0', safari: '15.0', edge: '79.0' },
+            mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext',
+            canIUseUrl: 'https://caniuse.com/webgl2',
+            demo: () => { import('../components/demos/WebGL2Demo').then(module => { openDemo(module.default); }); }
+          },
+          {
+            id: 'nfc',
+            name: 'NFC API',
+            description: 'NFC 標籤讀取',
+            browserSupport: { chrome: '89.0', firefox: 'N/A', safari: 'N/A', edge: 'N/A' },
+            mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Web_NFC_API',
+            canIUseUrl: 'https://caniuse.com/mdn-api_navigator_nfc',
+            demo: () => { import('../components/demos/NFCDemo').then(module => { openDemo(module.default); }); }
+          }
+        ]
       }
     ]
   }
