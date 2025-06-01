@@ -829,7 +829,11 @@ export const apiCategories: ApiCategory[] = [
         },
         mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/WebTransport',
         canIUseUrl: 'https://caniuse.com/webtransport',
-        demo: () => import('../components/demos/WebTransportDemo')
+        demo: () => {
+          import('../components/demos/WebTransportDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
       },
       {
         id: 'webpush',
@@ -843,7 +847,11 @@ export const apiCategories: ApiCategory[] = [
         },
         mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Push_API',
         canIUseUrl: 'https://caniuse.com/push-api',
-        demo: () => import('../components/demos/WebPushDemo')
+        demo: () => {
+          import('../components/demos/WebPushDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
       }
     ]
   },
@@ -1104,7 +1112,11 @@ export const apiCategories: ApiCategory[] = [
         },
         mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/CSS_Typed_OM_API',
         canIUseUrl: 'https://caniuse.com/css-typed-om',
-        demo: () => import('../components/demos/CSSTypedOMDemo')
+        demo: () => {
+          import('../components/demos/CSSTypedOMDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
       },
       {
         id: 'image-capture',
@@ -1116,7 +1128,29 @@ export const apiCategories: ApiCategory[] = [
         },
         mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/ImageCapture',
         canIUseUrl: 'https://caniuse.com/imagecapture',
-        demo: () => import('../components/demos/ImageCaptureDemo')
+        demo: () => {
+          import('../components/demos/ImageCaptureDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'webgl2',
+        name: 'WebGL2 API',
+        description: '提供基於 OpenGL ES 3.0 的 3D 圖形渲染功能，支援更多現代化的圖形特性。',
+        browserSupport: {
+          chrome: 'yes',
+          firefox: 'yes',
+          safari: 'yes',
+          edge: 'yes'
+        },
+        mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext',
+        canIUseUrl: 'https://caniuse.com/webgl2',
+        demo: () => {
+          import('../components/demos/WebGL2Demo').then(module => {
+            openDemo(module.default);
+          });
+        }
       }
     ]
   },
@@ -1484,14 +1518,18 @@ export const apiCategories: ApiCategory[] = [
         },
         mdnUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/Presentation_API',
         canIUseUrl: 'https://caniuse.com/presentation',
-        demo: () => import('../components/demos/PresentationDemo')
+        demo: () => {
+          import('../components/demos/PresentationDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
       }
     ]
   },
   {
     id: 'security',
     name: '安全與支付',
-    description: '處理安全性和支付相關功能',
+    description: '包含安全相關的 API，如內容安全策略、權限管理等。',
     apis: [
       {
         id: 'webCrypto',
@@ -1543,6 +1581,114 @@ export const apiCategories: ApiCategory[] = [
         canIUseUrl: 'https://caniuse.com/credential-management',
         demo: () => {
           import('../components/demos/CredentialManagementDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'permissions',
+        name: 'Permissions API',
+        description: '提供統一的介面來查詢和管理網頁應用程式的權限狀態。',
+        browserSupport: {
+          chrome: '43.0',
+          firefox: '46.0',
+          safari: '16.0',
+          edge: '79.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/API/Permissions_API',
+        canIUseUrl: 'https://caniuse.com/permissions-api',
+        demo: () => {
+          import('../components/demos/PermissionsDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'csp',
+        name: 'Content Security Policy (CSP)',
+        description: '提供額外的安全層，用於檢測和減輕特定類型的攻擊，包括跨站腳本 (XSS) 和資料注入攻擊。',
+        browserSupport: {
+          chrome: '25.0',
+          firefox: '23.0',
+          safari: '7.0',
+          edge: '12.0'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CSP',
+        canIUseUrl: 'https://caniuse.com/contentsecuritypolicy',
+        demo: () => {
+          import('../components/demos/CSPDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'sri',
+        name: 'Subresource Integrity (SRI)',
+        description: '允許瀏覽器驗證其獲取的資源（例如從 CDN）是否被篡改，通過比對資源的加密哈希值來確保資源的完整性。',
+        browserSupport: {
+          chrome: '49+',
+          firefox: '43+',
+          safari: '13+',
+          edge: '17+'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/Security/Subresource_Integrity',
+        canIUseUrl: 'https://caniuse.com/subresource-integrity',
+        demo: () => {
+          import('../components/demos/SRIDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'cors',
+        name: 'Cross-Origin Resource Sharing (CORS)',
+        description: '允許網頁從不同源存取資源的安全機制，通過 HTTP 標頭控制跨源請求的權限。',
+        browserSupport: {
+          chrome: '4+',
+          firefox: '3.5+',
+          safari: '4+',
+          edge: '12+'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS',
+        canIUseUrl: 'https://caniuse.com/cors',
+        demo: () => {
+          import('../components/demos/CORSDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'referrer-policy',
+        name: 'Referrer Policy API',
+        description: '控制瀏覽器在發送請求時如何處理 Referer 標頭，保護用戶隱私和防止資訊洩露。',
+        browserSupport: {
+          chrome: '61+',
+          firefox: '50+',
+          safari: '11.1+',
+          edge: '79+'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Headers/Referrer-Policy',
+        canIUseUrl: 'https://caniuse.com/referrer-policy',
+        demo: () => {
+          import('../components/demos/ReferrerPolicyDemo').then(module => {
+            openDemo(module.default);
+          });
+        }
+      },
+      {
+        id: 'feature-policy',
+        name: 'Feature Policy API',
+        description: '允許網站控制瀏覽器功能和 API 的使用，提供精細的權限控制機制。',
+        browserSupport: {
+          chrome: '60+',
+          firefox: '74+',
+          safari: '12.1+',
+          edge: '79+'
+        },
+        mdnUrl: 'https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Feature_Policy',
+        canIUseUrl: 'https://caniuse.com/feature-policy',
+        demo: () => {
+          import('../components/demos/FeaturePolicyDemo').then(module => {
             openDemo(module.default);
           });
         }

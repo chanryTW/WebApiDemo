@@ -128,12 +128,12 @@ This project demonstrates the usage and practical applications of modern Web API
 
 ### 安全與支付 (Security & Payment)
 - ✅ [Web Crypto API](https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Crypto_API)
-- [Permissions API](https://developer.mozilla.org/zh-TW/docs/Web/API/Permissions_API)
-- [Content Security Policy (CSP)](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CSP)
-- [Subresource Integrity (SRI)](https://developer.mozilla.org/zh-TW/docs/Web/Security/Subresource_Integrity)
-- [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)
-- [Referrer Policy API](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Headers/Referrer-Policy)
-- [Feature Policy API](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Feature_Policy)
+- ✅ [Permissions API](https://developer.mozilla.org/zh-TW/docs/Web/API/Permissions_API)
+- ✅ [Content Security Policy (CSP)](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CSP)
+- ✅ [Subresource Integrity (SRI)](https://developer.mozilla.org/zh-TW/docs/Web/Security/Subresource_Integrity)
+- ✅ [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)
+- ✅ [Referrer Policy API](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Headers/Referrer-Policy)
+- ✅ [Feature Policy API](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Feature_Policy)
 
 ## 開始使用 (Getting Started)
 
